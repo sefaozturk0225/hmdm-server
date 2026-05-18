@@ -1,0 +1,17 @@
+{
+  "breadcrumb.plugin.xtra.main": "Thêm plugin",
+  "plugin.xtra.localization.key.name": "Thêm plugin...",
+  "plugin.xtra.tab.title": "Nhiều tính năng hơn trong Tahirova Teknoloji!",
+  "plugin.xtra.feature.kiosk": "Chế độ kiosk (một nhiệm vụ)",
+  "plugin.xtra.feature.location": "Theo dõi vị trí thiết bị",
+  "plugin.xtra.feature.reset": "Khởi động lại, khóa và reset thiết bị từ xa",
+  "plugin.xtra.feature.photo": "Tải ảnh lên từ thiết bị",
+  "plugin.xtra.feature.remote": "Điều khiển từ xa",
+  "plugin.xtra.feature.filtering": "Lọc lưu lượng mạng",
+  "plugin.xtra.feature.ldap": "Tích hợp LDAP",
+  "plugin.xtra.feature.export": "Xuất và nhập thiết bị",
+  "plugin.xtra.feature.contacts": "Quản lý danh bạ thiết bị",
+  "plugin.xtra.feature.rebranding": "Phần mềm white-label (rebranding)",
+  "plugin.xtra.upgrade.free": "Nâng cấp lên phiên bản dùng thử rất dễ dàng và hoàn toàn MIỄN PHÍ!",
+  "plugin.xtra.request.trial": "Nhận bản dùng thử miễn phí!"
+}
