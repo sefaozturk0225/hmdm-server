@@ -399,6 +399,9 @@ public class SyncResource {
         data.setPermissive(configuration.getPermissive());
         data.setKioskExit(configuration.getKioskExit());
         data.setShowWifi(configuration.getShowWifi());
+        // null defaults to true (show) so the launcher shows buttons unless explicitly disabled
+        data.setShowInfoButton(configuration.getShowInfoButton() == null || configuration.getShowInfoButton() ? null : false);
+        data.setShowUpdateButton(configuration.getShowUpdateButton() == null || configuration.getShowUpdateButton() ? null : false);
 
         data.setKioskMode(configuration.isKioskMode());
         if (data.isKioskMode()) {

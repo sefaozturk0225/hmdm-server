@@ -2609,4 +2609,29 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="19.05.26-10:00" author="ttk" context="common">
+        <comment>Fix phone number format default to support 2-digit country codes (e.g. +90)</comment>
+        <sql>
+            UPDATE settings SET phoneNumberFormat = '+99 999 999 99 99'
+            WHERE phoneNumberFormat = '+9 (999) 999-99-99' OR phoneNumberFormat IS NULL;
+        </sql>
+        <rollback>
+            UPDATE settings SET phoneNumberFormat = '+9 (999) 999-99-99';
+        </rollback>
+    </changeSet>
+
+    <changeSet id="19.05.26-10:01" author="ttk" context="common">
+        <comment>Column,new: configurations#showInfoButton, configurations#showUpdateButton</comment>
+        <sql>
+            ALTER TABLE configurations
+            ADD COLUMN showInfoButton BOOLEAN DEFAULT true,
+            ADD COLUMN showUpdateButton BOOLEAN DEFAULT true;
+        </sql>
+        <rollback>
+            ALTER TABLE configurations
+            DROP COLUMN showInfoButton,
+            DROP COLUMN showUpdateButton;
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

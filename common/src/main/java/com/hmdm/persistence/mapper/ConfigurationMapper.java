@@ -103,6 +103,8 @@ public interface ConfigurationMapper {
             "permissive=#{permissive}, " +
             "kioskExit=#{kioskExit}, " +
             "showWifi=#{showWifi}, " +
+            "showInfoButton=#{showInfoButton}, " +
+            "showUpdateButton=#{showUpdateButton}, " +
             "gps=#{gps}, " +
             "bluetooth=#{bluetooth}, " +
             "wifi=#{wifi}, " +

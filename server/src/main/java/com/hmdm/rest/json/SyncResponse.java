@@ -133,6 +133,14 @@ public class SyncResponse implements Serializable, SyncResponseInt {
     @ApiModelProperty("Show WiFi settings if there's a connection error, also in Kiosk mode")
     private Boolean showWifi;
 
+    @ApiModelProperty("Show the Info button on the launcher")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean showInfoButton;
+
+    @ApiModelProperty("Show the Update/Download button on the launcher")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean showUpdateButton;
+
     @ApiModelProperty("A password for administrator of MDM application used on device")
     private String password;
 
@@ -821,6 +829,24 @@ public class SyncResponse implements Serializable, SyncResponseInt {
 
     public void setShowWifi(Boolean showWifi) {
         this.showWifi = showWifi;
+    }
+
+    @Override
+    public Boolean getShowInfoButton() {
+        return showInfoButton;
+    }
+
+    public void setShowInfoButton(Boolean showInfoButton) {
+        this.showInfoButton = showInfoButton;
+    }
+
+    @Override
+    public Boolean getShowUpdateButton() {
+        return showUpdateButton;
+    }
+
+    public void setShowUpdateButton(Boolean showUpdateButton) {
+        this.showUpdateButton = showUpdateButton;
     }
 
     @Override

@@ -147,6 +147,10 @@ public interface SyncResponseInt {
 
     Boolean getShowWifi();
 
+    Boolean getShowInfoButton();
+
+    Boolean getShowUpdateButton();
+
     List<SyncConfigurationFileInt> getFiles();
 
     String getNewNumber();

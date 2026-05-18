@@ -132,6 +132,10 @@ public class Configuration implements CustomerData, Serializable {
     private Boolean kioskExit;
     @ApiModelProperty("Show WiFi settings if there's a connection error, also in Kiosk mode")
     private Boolean showWifi;
+    @ApiModelProperty("Show the Info button on the launcher (displays device info: IMEI, serial, etc.)")
+    private Boolean showInfoButton;
+    @ApiModelProperty("Show the Update/Download button on the launcher (triggers MDM agent update)")
+    private Boolean showUpdateButton;
 
     // This group of settings corresponds to MDM settings
     @ApiModelProperty("A package ID for main application")
@@ -844,6 +848,22 @@ public class Configuration implements CustomerData, Serializable {
         this.showWifi = showWifi;
     }
 
+    public Boolean getShowInfoButton() {
+        return showInfoButton;
+    }
+
+    public void setShowInfoButton(Boolean showInfoButton) {
+        this.showInfoButton = showInfoButton;
+    }
+
+    public Boolean getShowUpdateButton() {
+        return showUpdateButton;
+    }
+
+    public void setShowUpdateButton(Boolean showUpdateButton) {
+        this.showUpdateButton = showUpdateButton;
+    }
+
     public List<ConfigurationFile> getFiles() {
         return files;
     }
@@ -939,6 +959,8 @@ public class Configuration implements CustomerData, Serializable {
         copy.setPermissive(getPermissive());
         copy.setKioskExit(getKioskExit());
         copy.setShowWifi(getShowWifi());
+        copy.setShowInfoButton(getShowInfoButton());
+        copy.setShowUpdateButton(getShowUpdateButton());
 
         copy.setUseDefaultDesignSettings(isUseDefaultDesignSettings());
         copy.setBackgroundColor(getBackgroundColor());
