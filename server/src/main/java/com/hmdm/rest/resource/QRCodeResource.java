@@ -247,6 +247,7 @@ public class QRCodeResource {
                                 "\"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME\":\"" + appMain.getPkg() +"/" + configuration.getEventReceivingComponent() + "\",\n" +
                                 "\"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION\":" + JSONObject.quote(apkUrl) + ",\n" +
                                 "\"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM\":\"" + sha256 + "\",\n" +
+                                "\"android.app.extra.PROVISIONING_ORGANIZATION_NAME\":\"Detoks Telefonu\",\n" +
                                 wifiSsidEntry + wifiPasswordEntry + mobileEnrollmentEntry +
                                 "\"android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED\":true,\n");
                         if (!configuration.isEncryptDevice()) {

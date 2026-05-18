@@ -90,4 +90,24 @@
     <!-- <Parameter name="jwt.secretkey" value="20c68f0d9185b1d18cf6add1e8b491fd89529a44"/> -->
     <!-- <Parameter name="jwt.validity" value="86400"/> -->
     <!-- <Parameter name="jwt.validityrememberme" value="2592000"/> -->
+
+    <!-- ================================================================
+         TAHIROVA TEKNOLOJI — Rebranding Parameters
+         These control what is displayed in the mobile launcher app and
+         the web control panel.
+         ================================================================ -->
+
+    <!-- Mobile app name shown in the device Info screen (launcher) -->
+    <Parameter name="rebranding.mobile.name" value="Tahirova Teknoloji"/>
+
+    <!-- Web panel app name (login screen, header, about dialog) -->
+    <Parameter name="rebranding.name" value="Tahirova Teknoloji"/>
+
+    <!-- Vendor name and link shown in login footer -->
+    <Parameter name="rebranding.vendor.name" value="Tahirova Teknoloji"/>
+    <Parameter name="rebranding.vendor.link" value="https://tahirovateknoloji.com"/>
+
+    <!-- Leave empty to use the default logo from images/logo.png -->
+    <!-- <Parameter name="rebranding.logo" value="/opt/hmdm/logo.png"/> -->
+
 </Context>

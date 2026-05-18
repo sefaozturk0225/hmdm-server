@@ -52,5 +52,6 @@
 	"table.heading.plugin.push.weekday": "Giorni feriali",
 	"table.heading.plugin.push.month": "Mesi",
 	"plugin.push.schedule.success": "Attività programmata correttamente",
-	"plugin.push.delete.task": "Eliminare questa attività pianificata?"
+  "plugin.push.delete.task": "Eliminare questa attività pianificata?",
+  "plugin.push.delete.message": "Eliminare questo messaggio push?"
 }

@@ -52,5 +52,6 @@
   "table.heading.plugin.push.weekday": "Dias da semana",
   "table.heading.plugin.push.month": "Meses",
   "plugin.push.schedule.success": "Tarefa agendada com sucesso",
-  "plugin.push.delete.task": "Excluir esta tarefa agendada?"
+  "plugin.push.delete.task": "Excluir esta tarefa agendada?",
+  "plugin.push.delete.message": "Excluir esta mensagem push?"
 }

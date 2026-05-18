@@ -52,5 +52,6 @@
   "table.heading.plugin.push.weekday": "Días laborables",
   "table.heading.plugin.push.month": "Meses",
   "plugin.push.schedule.success": "Tarea programada exitosamente",
-  "plugin.push.delete.task": "¿Eliminar esta tarea programada?"
+  "plugin.push.delete.task": "¿Eliminar esta tarea programada?",
+  "plugin.push.delete.message": "¿Eliminar este mensaje push?"
 }

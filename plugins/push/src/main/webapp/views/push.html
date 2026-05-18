@@ -105,7 +105,7 @@
                         </th>
                         <th localized>table.heading.plugin.push.messageType</th>
                         <th localized>table.heading.plugin.push.payload</th>
-                        <th>&nbsp;</th>
+                        <th class='actions-column' localized>table.heading.device.actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -114,7 +114,12 @@
                         <td>{{message.deviceNumber}}</td>
                         <td>{{message.messageType}}</td>
                         <td>{{message.payload}}</td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <button type='button' class='btn btn-default' localized-title="button.delete"
+                                    ng-click='removeMessage(message)'>
+                                <span class='glyphicon glyphicon-trash'></span>
+                            </button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

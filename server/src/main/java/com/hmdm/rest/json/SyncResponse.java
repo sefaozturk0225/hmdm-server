@@ -100,10 +100,10 @@ public class SyncResponse implements Serializable, SyncResponseInt {
     @ApiModelProperty("Orientation lock: 0 - none, 1 - portrait, 2 - landscape")
     private Integer orientation;
 
-    @ApiModelProperty("Set to true if Headind MDM should display device status (time, battery, etc)")
+    @ApiModelProperty("Set to true if MDM should display device status (time, battery, etc)")
     private Boolean displayStatus;
 
-    @ApiModelProperty("Set to true if Headwind MDM need to work together with a third-party launcher")
+    @ApiModelProperty("Set to true if MDM should to work together with a third-party launcher")
     private Boolean runDefaultLauncher;
 
     @ApiModelProperty("Flag indicating if screenshots are disabled on the device")

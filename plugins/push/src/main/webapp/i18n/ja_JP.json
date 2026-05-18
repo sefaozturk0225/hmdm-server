@@ -52,5 +52,6 @@
   "table.Heading.plugin.push.weekday": "平日",
   "table.Heading.plugin.push.month": "月",
   "plugin.push.schedule.success": "タスクは正常にスケジュールされました",
-  "plugin.push.delete.task": "このスケジュールされたタスクを削除しますか?"
+  "plugin.push.delete.task": "このスケジュールされたタスクを削除しますか?",
+  "plugin.push.delete.message": "このプッシュメッセージを削除しますか?"
 }

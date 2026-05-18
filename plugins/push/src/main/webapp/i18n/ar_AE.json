@@ -52,5 +52,6 @@
   "table.heading.plugin.push.weekday": "أيام الأسبوع",
   "table.heading.plugin.push.month": "الأشهر",
   "plugin.push.schedule.success": "تم جدولة المهمة بنجاح",
-  "plugin.push.delete.task": "هل تريد حذف هذه المهمة المجدولة؟"
+  "plugin.push.delete.task": "هل تريد حذف هذه المهمة المجدولة؟",
+  "plugin.push.delete.message": "هل تريد حذف هذه الرسالة الفورية؟"
 }

@@ -948,23 +948,23 @@ document.localization ['en_US'] = {
     'breadcrumb.config.details': 'Details',
     'breadcrumb.application.versions': 'Versions',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
-    'app.description': 'is an open source mobile device management system',
+    'app.name': 'Tahirova Teknoloji',
+    'app.vendor.name':"Tahirova Teknoloji",
+    'app.vendor.link':"https://tahirovateknoloji.com",
+    'app.description': 'is a mobile device management platform by Tahirova Teknoloji',
     'app.title': '${appName} Web Panel',
 
     'box.show.my.apps.only': 'Display my applications only',
     'configuration.app.version.upgrade.message': 'Installed version ${installedVersion}, available version ${latestVersion}',
 
     'about.line.1': '${appName} control panel',
-    'about.line.2': 'Open source MDM for Android',
+    'about.line.2': 'Tahirova Teknoloji MDM Platform',
     'about.line.3': 'Version ${versionNumber}',
     'about.line.4': 'Installed plugins',
 
     'common.app.clarification': 'This application is public and not available for editing. To add another version of this app, please contact the administrator.',
 
-    'qrcode.help.line1': 'To setup the Android device (version 7 or higher) in a managed (corporate) mode:',
+    'qrcode.help.line1': 'To setup the Android device (version 7 or higher) in a managed mode:',
     'qrcode.help.line2': 'Reset the device to factory settings',
     'qrcode.help.line3': 'Tap 7 times on any place of the start screen (you must enter a hidden QR code scanning mode)',
     'qrcode.help.line4': 'Follow the device instructions: accept the terms, connect to Wi-Fi, scan this QR-code',

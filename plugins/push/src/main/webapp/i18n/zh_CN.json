@@ -52,5 +52,6 @@
   "table.heading.plugin.push.weekday": "工作日",
   "table.heading.plugin.push.month": "月份",
   "plugin.push.schedule.success": "任务调度成功",
-  "plugin.push.delete.task": "删除这个定时任务吗？"
+  "plugin.push.delete.task": "删除这个定时任务吗？",
+  "plugin.push.delete.message": "删除这条推送消息吗？"
 }

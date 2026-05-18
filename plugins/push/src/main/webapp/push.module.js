@@ -171,6 +171,19 @@ angular.module('plugin-push', ['ngResource', 'ui.bootstrap', 'ui.router', 'ngTag
             loadData();
         });
 
+        $scope.removeMessage = function (message) {
+            var confirmText = localization.localize('plugin.push.delete.message') || localization.localize('plugin.push.delete.task');
+            confirmModal.getUserConfirmation(confirmText, function () {
+                pluginPushService.deleteMessage({id: message.id}, function (response) {
+                    if (response.status === 'OK') {
+                        loadData();
+                    } else {
+                        $scope.errorMessage = localization.localize('error.internal.server');
+                    }
+                });
+            });
+        };
+
         $scope.newMessage = function (message) {
             var modalInstance = $modal.open({
                 templateUrl: 'app/components/plugins/push/views/push.modal.html',

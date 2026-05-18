@@ -949,17 +949,17 @@ document.localization[ 'ru_RU' ] = {
     'breadcrumb.config.details': 'Детали',
     'breadcrumb.application.versions': 'Версии',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
-    'app.description': '- система управления мобильными устройствами с открытым кодом',
+    'app.name': 'Tahirova Teknoloji',
+    'app.vendor.name':"Tahirova Teknoloji",
+    'app.vendor.link':"https://tahirovateknoloji.com",
+    'app.description': 'это MDM-платформа Tahirova Teknoloji',
     'app.title': '${appName} - панель управления',
 
     'box.show.my.apps.only': 'Показать только мои приложения',
     'configuration.app.version.upgrade.message': 'Установлена версия ${installedVersion}, доступна версия ${latestVersion}',
 
     'about.line.1': 'Панель управления ${appName}',
-    'about.line.2': 'Оболочка для корпоративных Android-устройств',
+    'about.line.2': 'MDM-платформа Tahirova Teknoloji',
     'about.line.3': 'Версия ${versionNumber}',
     'about.line.4': 'Используемые плагины',
 

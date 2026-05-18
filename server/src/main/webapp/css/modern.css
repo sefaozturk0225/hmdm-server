@@ -1,0 +1,826 @@
+/*
+ * modern.css — Headwind MDM Modern Theme Override
+ * Loads after main.css; all rules target existing Bootstrap 3 + app class names.
+ * HTML structure is NOT changed — only visual overrides live here.
+ */
+
+/* ─────────────────────────────────────────────
+   0. DESIGN TOKENS
+   ───────────────────────────────────────────── */
+:root {
+  --c-bg:          #f0f4f8;
+  --c-surface:     #ffffff;
+  --c-border:      #dce3ec;
+  --c-border-lite: #edf2f7;
+
+  --c-navy:        #1a2e44;
+  --c-navy-mid:    #243b55;
+  --c-blue:        #1a6fba;
+  --c-blue-light:  #3b90d4;
+  --c-blue-pale:   #e8f1fb;
+
+  --c-text:        #1e2d3d;
+  --c-muted:       #64748b;
+
+  --c-success:     #0e7a50;
+  --c-danger:      #c0392b;
+  --c-warn:        #b45309;
+
+  --radius-sm:     4px;
+  --radius:        6px;
+  --radius-lg:     10px;
+
+  --shadow-sm:     0 1px 3px rgba(0,0,0,.08);
+  --shadow:        0 2px 8px rgba(0,0,0,.10);
+  --shadow-lg:     0 8px 28px rgba(0,0,0,.14);
+
+  --header-h:      52px;
+  --font:          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   1. BASE
+   ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font) !important;
+  font-size:   13px !important;
+  color:       var(--c-text) !important;
+  background:  var(--c-bg)   !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--c-blue) !important; }
+a:hover { color: var(--c-blue-light) !important; }
+
+/* ─────────────────────────────────────────────
+   2. HEADER / NAVBAR
+   ───────────────────────────────────────────── */
+.navbar.navbar-default.header,
+nav.navbar.navbar-default.header {
+  height:     var(--header-h) !important;
+  min-height: var(--header-h) !important;
+  background: linear-gradient(135deg, var(--c-navy) 0%, var(--c-navy-mid) 100%) !important;
+  border:     none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.20) !important;
+  border-radius: 0 !important;
+}
+
+/* Logo / app name */
+.header .logo-text,
+.navbar.header .nav.navbar-nav.navbar-left.logo-text {
+  margin-top:  0 !important;
+  padding-left:20px !important;
+  line-height: var(--header-h) !important;
+  font-size:   17px !important;
+  font-weight: 700 !important;
+  letter-spacing: .2px;
+  color: #dbeafe !important;
+}
+
+.header .logo-text a,
+.header .logo-text a:active,
+.header .logo-text a:visited {
+  color:           #dbeafe !important;
+  font-size:       17px !important;
+  text-decoration: none !important;
+}
+
+.header .logo-text a:hover { color: #ffffff !important; }
+
+/* Right-side nav links */
+.header .nav.navbar-nav.navbar-right > li > a {
+  color:       #93bbde !important;
+  font-size:   13px  !important;
+  line-height: var(--header-h) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.header .nav.navbar-nav.navbar-right > li > a:hover { color: #fff !important; }
+
+/* Username caret */
+.username-label { font-weight: 500; }
+.username-caret  { margin-left: 4px; }
+
+/* Header dropdown */
+.header .open > a,
+.header .open > a:hover,
+.header .open > a:focus {
+  background: rgba(255,255,255,.08) !important;
+}
+
+.header .dropdown-menu {
+  background:    var(--c-navy-mid) !important;
+  border:        1px solid rgba(255,255,255,.10) !important;
+  border-top:    none !important;
+  border-radius: 0 0 var(--radius) var(--radius) !important;
+  box-shadow:    var(--shadow) !important;
+  min-width:     160px;
+  padding:       4px 0 !important;
+  margin-top:    0 !important;
+}
+
+.header .dropdown-menu > li > a {
+  color:   #93bbde !important;
+  padding: 9px 18px !important;
+  font-size: 13px !important;
+}
+
+.header .dropdown-menu > li > a:hover {
+  background: rgba(255,255,255,.08) !important;
+  color:      #fff !important;
+}
+
+/* Expiry warning */
+.navbar-nav .expiry-warning {
+  color: #fde047 !important;
+  font-weight: 600 !important;
+}
+
+/* ─────────────────────────────────────────────
+   3. CONTENT WRAPPER
+   ───────────────────────────────────────────── */
+.content-wrapper.fullscreen {
+  padding-top: calc(var(--header-h) + 18px) !important;
+  padding-left:  18px !important;
+  padding-right: 18px !important;
+  height: auto !important;
+}
+
+/* ─────────────────────────────────────────────
+   4. TABS
+   ───────────────────────────────────────────── */
+.tabset > .nav.nav-tabs {
+  border-bottom: 2px solid var(--c-border) !important;
+  margin-bottom: 0 !important;
+  background:    transparent !important;
+}
+
+.tabset > .nav.nav-tabs > li > a,
+.tabset > .nav.nav-tabs > li > tab > tab-heading,
+.tabset > .nav.nav-tabs > li.dropdown > a {
+  color:         var(--c-muted) !important;
+  font-size:     13px !important;
+  font-weight:   500 !important;
+  padding:       10px 18px !important;
+  border:        none !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  background:    transparent !important;
+  margin-bottom: -2px !important;
+  transition:    color .15s, border-color .15s;
+  cursor: pointer;
+}
+
+.tabset > .nav.nav-tabs > li > a:hover,
+.tabset > .nav.nav-tabs > li.dropdown > a:hover {
+  color:        var(--c-blue) !important;
+  border-bottom-color: var(--c-blue-light) !important;
+  background:   transparent !important;
+}
+
+.tabset > .nav.nav-tabs > li.active > a,
+.tabset > .nav.nav-tabs > li.active > a:focus,
+.tabset > .nav.nav-tabs > li.active > a:hover {
+  color:        var(--c-navy) !important;
+  font-weight:  600 !important;
+  border-bottom: 2px solid var(--c-blue) !important;
+  background:   transparent !important;
+}
+
+/* Dropdown items in tabs */
+.tabset .dropdown-menu {
+  border-radius: var(--radius) !important;
+  box-shadow:    var(--shadow) !important;
+  border:        1px solid var(--c-border) !important;
+  padding:       4px 0 !important;
+  min-width:     180px;
+}
+
+.tabset .dropdown-menu > li > a,
+.tabset .dropdown-menu > li > tab > tab-heading {
+  color:     var(--c-text) !important;
+  font-size: 13px !important;
+  padding:   9px 18px !important;
+  display:   block;
+  cursor:    pointer;
+  white-space: nowrap;
+}
+
+.tabset .dropdown-menu > li.active > a,
+.tabset .dropdown-menu > li.active > tab > tab-heading {
+  background: var(--c-blue-pale) !important;
+  color:      var(--c-blue) !important;
+  font-weight: 600 !important;
+}
+
+.tabset .dropdown-menu > li > a:hover,
+.tabset .dropdown-menu > li > tab > tab-heading:hover {
+  background: var(--c-blue-pale) !important;
+  color:      var(--c-blue) !important;
+}
+
+/* Tab content area */
+.tabset > .tab-content { padding-top: 20px !important; }
+
+/* ─────────────────────────────────────────────
+   5. FILTER / SEARCH TOOLBAR CARD
+   ───────────────────────────────────────────── */
+.tabset .tab-content form.form-horizontal,
+.tabset .tab-content .form-horizontal:not(.modal-body .form-horizontal) {
+  background:    var(--c-surface) !important;
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  padding:       16px 18px 8px !important;
+  margin-bottom: 16px !important;
+  box-shadow:    var(--shadow-sm) !important;
+}
+
+/* Avoid nesting issues inside modals */
+.modal-body form.form-horizontal,
+.modal-body .form-horizontal {
+  background:  transparent !important;
+  border:      none !important;
+  box-shadow:  none !important;
+  padding:     0 !important;
+  margin:      0 !important;
+}
+
+/* ─────────────────────────────────────────────
+   6. FORM CONTROLS & INPUTS
+   ───────────────────────────────────────────── */
+.form-control {
+  height:        34px !important;
+  font-size:     13px !important;
+  color:         var(--c-text) !important;
+  background:    var(--c-surface) !important;
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow:    none !important;
+  transition:    border-color .15s, box-shadow .15s !important;
+}
+
+.form-control:focus {
+  border-color: var(--c-blue-light) !important;
+  box-shadow:   0 0 0 3px rgba(59,144,212,.18) !important;
+  outline:      none !important;
+}
+
+select.form-control { padding: 0 10px !important; }
+
+textarea.form-control { height: auto !important; }
+
+.form-group { margin-bottom: 12px !important; }
+
+label.control-label {
+  color:       var(--c-muted) !important;
+  font-weight: 500 !important;
+  font-size:   12px !important;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+/* ─────────────────────────────────────────────
+   7. BUTTONS
+   ───────────────────────────────────────────── */
+.btn {
+  font-family:   var(--font) !important;
+  font-size:     13px !important;
+  font-weight:   500 !important;
+  border-radius: var(--radius-sm) !important;
+  padding:       6px 14px !important;
+  transition:    background .15s, border-color .15s, color .15s, box-shadow .15s !important;
+  box-shadow:    var(--shadow-sm) !important;
+  line-height:   1.4 !important;
+}
+
+.btn-default {
+  background:   var(--c-surface) !important;
+  color:        var(--c-text) !important;
+  border:       1px solid var(--c-border) !important;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  background:   var(--c-blue-pale) !important;
+  border-color: var(--c-blue-light) !important;
+  color:        var(--c-blue) !important;
+  box-shadow:   0 0 0 2px rgba(59,144,212,.15) !important;
+}
+
+.btn-default:active {
+  background:  #d4e8f7 !important;
+  border-color: var(--c-blue) !important;
+}
+
+.btn-default[disabled],
+.btn-default.disabled {
+  opacity: .45 !important;
+  cursor:  not-allowed !important;
+}
+
+/* Icon action buttons (pencil, trash, etc.) in table cells */
+td .btn.btn-default,
+td > div > .btn.btn-default,
+.deviceActions .btn.btn-default {
+  padding:      4px 8px !important;
+  font-size:    12px !important;
+  border-color: var(--c-border) !important;
+  background:   #f7f9fb !important;
+  color:        #52687a !important;
+  box-shadow:   none !important;
+  margin:       0 2px !important;
+}
+
+td .btn.btn-default:hover,
+td > div > .btn.btn-default:hover,
+.deviceActions .btn.btn-default:hover {
+  background:   var(--c-blue-pale) !important;
+  border-color: var(--c-blue-light) !important;
+  color:        var(--c-blue) !important;
+}
+
+/* Trash icon — red tint */
+td .btn.btn-default .glyphicon-trash,
+td > div > .btn.btn-default .glyphicon-trash,
+.deviceActions .btn.btn-default .glyphicon-trash { color: #a93226; }
+
+td .btn.btn-default:hover .glyphicon-trash,
+td > div > .btn.btn-default:hover .glyphicon-trash,
+.deviceActions .btn.btn-default:hover .glyphicon-trash { color: var(--c-danger); }
+
+/* ─────────────────────────────────────────────
+   8. TABLES
+   ───────────────────────────────────────────── */
+.table {
+  background:    var(--c-surface) !important;
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow:    var(--shadow-sm) !important;
+  margin-bottom: 0 !important;
+  font-size:     13px !important;
+  overflow:      hidden;
+  border-collapse: separate !important;
+  border-spacing:  0 !important;
+}
+
+/* Table header */
+.table > thead > tr > th {
+  background:    #f0f4f8 !important;
+  color:         #3a5068 !important;
+  font-size:     11px !important;
+  font-weight:   700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .5px !important;
+  padding:       10px 14px !important;
+  border-bottom: 1px solid var(--c-border) !important;
+  border-top:    none !important;
+  white-space:   nowrap;
+  user-select:   none;
+}
+
+.table > thead > tr > th.pointer { cursor: pointer; }
+.table > thead > tr > th.pointer:hover { background: #e5ecf4 !important; }
+
+/* Table body cells */
+.table > tbody > tr > td {
+  padding:         9px 14px !important;
+  border-top:      1px solid var(--c-border-lite) !important;
+  vertical-align:  middle !important;
+  color:           var(--c-text) !important;
+  background:      var(--c-surface);
+}
+
+/* Even rows subtle stripe */
+.table > tbody > tr:nth-child(even) > td {
+  background: #f8fafc !important;
+}
+
+/* Hover */
+.table > tbody > tr:hover > td {
+  background: #eef4fb !important;
+}
+
+/* First/last border-radius corners */
+.table > thead > tr > th:first-child { border-radius: var(--radius) 0 0 0 !important; }
+.table > thead > tr > th:last-child  { border-radius: 0 var(--radius) 0 0 !important; }
+
+/* Sort glyphicons in header */
+.table > thead > tr > th .glyphicon {
+  font-size:   10px !important;
+  margin-left: 4px;
+  color:       var(--c-blue-light);
+}
+
+/* ─────────────────────────────────────────────
+   9. PAGINATION
+   ───────────────────────────────────────────── */
+.custom-pagination-wrapper { margin: 12px 0; }
+
+.custom-pagination {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  flex-wrap:   wrap;
+}
+
+.pagination-label {
+  font-size:   12px;
+  color:       var(--c-muted);
+  font-weight: 600;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color:         var(--c-blue) !important;
+  border-color:  var(--c-border) !important;
+  font-size:     12px !important;
+  padding:       5px 10px !important;
+  border-radius: var(--radius-sm) !important;
+  margin:        0 1px !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover {
+  background:   var(--c-blue) !important;
+  border-color: var(--c-blue) !important;
+  color:        #fff !important;
+}
+
+.pagination > li > a:hover {
+  background:   var(--c-blue-pale) !important;
+  border-color: var(--c-blue-light) !important;
+  color:        var(--c-blue) !important;
+}
+
+.pagination > .disabled > a,
+.pagination > .disabled > span {
+  color:      #b0bec5 !important;
+  background: #f7f9fb !important;
+}
+
+/* ─────────────────────────────────────────────
+   10. MODALS
+   ───────────────────────────────────────────── */
+.modal-content {
+  border:        none !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow:    var(--shadow-lg) !important;
+  overflow:      hidden;
+}
+
+.modal-header {
+  background:    var(--c-navy) !important;
+  border-bottom: none !important;
+  padding:       14px 20px !important;
+}
+
+.modal-header .modal-title {
+  color:       #dbeafe !important;
+  font-size:   15px !important;
+  font-weight: 600 !important;
+}
+
+.modal-header .close {
+  color:   #93bbde !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-size: 22px !important;
+}
+
+.modal-header .close:hover { color: #fff !important; }
+
+.modal-body {
+  padding: 20px !important;
+  background: var(--c-surface) !important;
+}
+
+.modal-footer {
+  background:  #f8f9fb !important;
+  border-top:  1px solid var(--c-border) !important;
+  padding:     12px 20px !important;
+}
+
+/* ─────────────────────────────────────────────
+   11. LOGIN PAGE
+   ───────────────────────────────────────────── */
+.login {
+  width:         480px !important;
+  border:        none !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow:    0 4px 24px rgba(0,0,0,.12) !important;
+  overflow:      hidden !important;
+  margin-top:    44px !important;
+}
+
+.login .panel-body {
+  background: var(--c-surface) !important;
+  padding:    32px !important;
+}
+
+.login-logo {
+  text-align:   center !important;
+  margin:       36px auto 0 !important;
+  max-width:    none !important;
+}
+
+.login-logo img { margin-bottom: 8px !important; }
+
+.login-logo .logo {
+  font-size:   28px !important;
+  font-weight: 700 !important;
+  color:       var(--c-navy) !important;
+  letter-spacing: -.3px;
+}
+
+.login-footer {
+  font-size:  12px !important;
+  color:      var(--c-muted) !important;
+  border-top: 1px solid var(--c-border) !important;
+}
+
+/* ─────────────────────────────────────────────
+   12. PANELS (used in several sections)
+   ───────────────────────────────────────────── */
+.panel {
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow:    var(--shadow-sm) !important;
+}
+
+.panel-heading {
+  border-radius: var(--radius) var(--radius) 0 0 !important;
+  padding:       10px 16px !important;
+  font-weight:   600 !important;
+  font-size:     13px !important;
+}
+
+.panel-default > .panel-heading {
+  background: #f0f4f8 !important;
+  color:      var(--c-text) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+}
+
+/* ─────────────────────────────────────────────
+   13. ALERTS / MESSAGES
+   ───────────────────────────────────────────── */
+.error, .error span {
+  color: var(--c-danger) !important;
+  font-weight: 500;
+}
+
+.success, .success span {
+  color: var(--c-success) !important;
+  font-weight: 500;
+}
+
+.alert {
+  border-radius: var(--radius) !important;
+  box-shadow:    var(--shadow) !important;
+  font-size:     13px !important;
+}
+
+/* ─────────────────────────────────────────────
+   14. ACTION LINKS
+   ───────────────────────────────────────────── */
+.action-link {
+  color:           var(--c-blue) !important;
+  font-weight:     500 !important;
+  text-decoration: none !important;
+  cursor:          pointer !important;
+}
+
+.action-link:hover {
+  color:           var(--c-blue-light) !important;
+  text-decoration: underline !important;
+}
+
+/* ─────────────────────────────────────────────
+   15. SPINNER
+   ───────────────────────────────────────────── */
+.spinner > div { background-color: var(--c-blue-light) !important; }
+
+/* ─────────────────────────────────────────────
+   16. FIELD HINTS & HINTS
+   ───────────────────────────────────────────── */
+.field-hint {
+  color:     var(--c-muted) !important;
+  font-size: 12px !important;
+  margin:    4px 0 10px !important;
+}
+
+.field-warning {
+  color:     var(--c-warn) !important;
+  font-size: 12px !important;
+  margin:    2px 0 6px !important;
+}
+
+.configuration-hint {
+  color:     var(--c-muted) !important;
+  font-size: 12px !important;
+}
+
+.list-desc {
+  color:     var(--c-muted) !important;
+  font-size: 12px !important;
+}
+
+/* ─────────────────────────────────────────────
+   17. EMPTY STATE
+   ───────────────────────────────────────────── */
+.center[localized],
+div.center {
+  text-align: center;
+  color:      var(--c-muted) !important;
+  padding:    48px 0 !important;
+  font-size:  14px !important;
+}
+
+/* ─────────────────────────────────────────────
+   18. COLLAPSE CONTROL (filter toggle)
+   ───────────────────────────────────────────── */
+.collapse-control {
+  color:       var(--c-blue) !important;
+  font-size:   13px !important;
+  font-weight: 500 !important;
+  cursor:      pointer !important;
+}
+
+.glyphicon.pointer { color: var(--c-blue); cursor: pointer; }
+
+/* ─────────────────────────────────────────────
+   19. DROPDOWN MENUS (generic)
+   ───────────────────────────────────────────── */
+.dropdown-menu {
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow:    var(--shadow) !important;
+  padding:       4px 0 !important;
+  font-size:     13px !important;
+}
+
+.dropdown-menu > li > a {
+  color:   var(--c-text) !important;
+  padding: 8px 16px !important;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: var(--c-blue-pale) !important;
+  color:      var(--c-blue) !important;
+}
+
+/* ─────────────────────────────────────────────
+   20. BREADCRUMBS
+   ───────────────────────────────────────────── */
+.breadcrumb {
+  background:    transparent !important;
+  font-size:     12px !important;
+  padding:       4px 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.breadcrumb > li + li::before { color: var(--c-muted) !important; }
+.breadcrumb > .active { color: var(--c-muted) !important; }
+
+/* ─────────────────────────────────────────────
+   21. CHECKBOX & RADIO
+   ───────────────────────────────────────────── */
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--c-blue);
+}
+
+/* ─────────────────────────────────────────────
+   22. SCROLLBAR (Webkit)
+   ───────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: var(--c-bg); }
+::-webkit-scrollbar-thumb        { background: #b0c4d4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--c-blue-light); }
+
+/* ─────────────────────────────────────────────
+   23. NOTIFICATION BADGE / EXPIRY
+   ───────────────────────────────────────────── */
+a#headerExpiryWarning.expiry-warning {
+  color:       #fde047 !important;
+  font-weight: 700 !important;
+  animation:   pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .65; }
+}
+
+/* ─────────────────────────────────────────────
+   24. PUSH MESSAGES — Delete button column
+   ───────────────────────────────────────────── */
+.table td:last-child .btn.btn-default .glyphicon-trash { color: #a93226; }
+.table td:last-child .btn.btn-default:hover            { background: #fef2f2 !important; border-color: #f5b7b1 !important; }
+.table td:last-child .btn.btn-default:hover .glyphicon-trash { color: var(--c-danger); }
+
+/* ─────────────────────────────────────────────
+   25. SETTINGS PAGE — width-1000 wrappers
+   ───────────────────────────────────────────── */
+.width-1000 {
+  max-width: 960px !important;
+  margin: 0 auto !important;
+}
+
+.width-1000 .form-horizontal,
+.width-1000 form.form-horizontal {
+  background:    var(--c-surface) !important;
+  border:        1px solid var(--c-border) !important;
+  border-radius: var(--radius) !important;
+  padding:       20px !important;
+  box-shadow:    var(--shadow-sm) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Section headings inside settings */
+.width-1000 h3, .width-1000 h4 {
+  color:       var(--c-navy) !important;
+  font-weight: 600 !important;
+  margin:      8px 0 16px !important;
+}
+
+/* Checkbox row in settings (common.html) */
+.width-1000 .form-group .col-sm-1 input[type="checkbox"] {
+  margin-top: 8px !important;
+  width:      18px !important;
+  height:     18px !important;
+}
+
+/* ─────────────────────────────────────────────
+   26. CONFIGURATION EDITOR — nested tabs
+   ───────────────────────────────────────────── */
+.content-wrapper.width-1000 .tabset > .nav.nav-tabs {
+  background: #f7f9fb !important;
+  border-radius: var(--radius) var(--radius) 0 0 !important;
+  padding: 0 8px !important;
+}
+
+/* Sub-form cards inside config editor */
+.content-wrapper.width-1000 form.form-horizontal {
+  background:  transparent !important;
+  border:      none !important;
+  box-shadow:  none !important;
+  padding:     0 !important;
+  margin:      0 !important;
+}
+
+/* ─────────────────────────────────────────────
+   27. SUMMARY / CHARTS
+   ───────────────────────────────────────────── */
+.width-1000 canvas { max-width: 100% !important; }
+
+.width-1000 .delimiter {
+  border-bottom: 1px solid var(--c-border-lite) !important;
+}
+
+/* Stat labels in summary */
+.align-right { text-align: right !important; }
+
+/* ─────────────────────────────────────────────
+   28. PROFILE & PASSWORD FORMS
+   ───────────────────────────────────────────── */
+.profile form { margin-top: 16px !important; }
+.profile .change-title {
+  color:       var(--c-navy) !important;
+  font-weight: 600 !important;
+  font-size:   14px !important;
+  margin-top:  28px !important;
+  border-top:  1px solid var(--c-border) !important;
+  padding-top: 20px !important;
+}
+
+/* ─────────────────────────────────────────────
+   29. DEVICE ACTIONS COLUMN
+   ───────────────────────────────────────────── */
+.actions-column,
+.actions-column-150 {
+  white-space: nowrap !important;
+  text-align:  right !important;
+  width:       1% !important;
+}
+
+/* ─────────────────────────────────────────────
+   30. RESPONSIVE: tighten on smaller viewports
+   ───────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .content-wrapper.fullscreen {
+    padding-left:  10px !important;
+    padding-right: 10px !important;
+  }
+
+  .table > thead > tr > th,
+  .table > tbody > tr > td {
+    padding: 8px 10px !important;
+  }
+}

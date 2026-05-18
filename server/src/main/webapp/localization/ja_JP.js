@@ -949,17 +949,17 @@ document.localization ['ja_JP'] = {
     'breadcrumb.config.details': '詳細',
     'breadcrumb.application.versions': 'バージョン',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
-    'app.description': 'is the open source mobile device management system',
+    'app.name': 'Tahirova Teknoloji',
+    'app.vendor.name':"Tahirova Teknoloji",
+    'app.vendor.link':"https://tahirovateknoloji.com",
+    'app.description': 'はTahirova TeknolojiのMDMプラットフォームです',
     'app.title': '${appName} Web パネル',
 
     'box.show.my.apps.only': '自分のアプリケーションのみを表示',
     'configuration.app.version.upgrade.message': 'インストール済みバージョン ${installedVersion}、利用可能なバージョン ${latestVersion}',
 
     'about.line.1': '${appName} コントロールパネル',
-    'about.line.2': 'Android 向けエンタープライズランチャー',
+    'about.line.2': 'Tahirova Teknoloji MDMプラットフォーム',
     'about.line.3': 'バージョン ${versionNumber}',
     'about.line.4': 'インストール済みプラグイン',
 

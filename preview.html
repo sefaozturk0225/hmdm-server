@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tahirova Teknoloji — UI Önizleme</title>
+<link rel="stylesheet" href="server/webtarget/bower_components/bootstrap-css-only/css/bootstrap.min.css">
+<link rel="stylesheet" href="server/src/main/webapp/css/main.css">
+<link rel="stylesheet" href="server/src/main/webapp/css/modern.css">
+<style>
+  /* Preview scaffold only */
+  .preview-section { margin: 30px 0; }
+  .preview-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: #6b7f90; margin-bottom: 10px;
+    padding-bottom: 4px; border-bottom: 1px dashed #d1dde8;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<nav class="navbar navbar-default navbar-fixed-top header">
+  <div class="nav navbar-nav navbar-left logo-text">
+    <a>Tahirova Teknoloji</a>
+  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="hide-on-small-screen"><a>Pazartesi, 19 Mayıs 2026 — 09:41</a></li>
+    <li class="dropdown open" style="margin-right:16px">
+      <a class="dropdown-toggle" role="button">
+        <span class="username-label">Admin</span>
+        <span class="caret username-caret"></span>
+      </a>
+      <ul class="dropdown-menu" style="display:block; position:relative; top:0; border-radius:0 0 6px 6px;">
+        <li><a>Hakkında</a></li>
+        <li><a>Profil</a></li>
+        <li><a>Çıkış</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content-wrapper fullscreen">
+
+  <!-- Fake tab bar -->
+  <div class="preview-section">
+    <div class="preview-label">TAB ÇUBUĞU</div>
+    <div class="tabset">
+      <ul class="nav nav-tabs">
+        <li><a>Özet</a></li>
+        <li class="active"><a>Cihazlar</a></li>
+        <li><a>Uygulamalar</a></li>
+        <li><a>Yapılandırmalar</a></li>
+        <li><a>Dosyalar</a></li>
+        <li class="dropdown open">
+          <a class="dropdown-toggle">Ayarlar <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="display:block;position:relative;">
+            <li class="active"><a>Genel Ayarlar</a></li>
+            <li><a>Kullanıcılar</a></li>
+            <li><a>Gruplar</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle">Fonksiyonlar <span class="caret"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== DEVICES SECTION ===== -->
+  <div class="preview-section">
+    <div class="preview-label">CİHAZLAR — FİLTRE ALANI</div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option>Tüm Gruplar</option>
+            <option>Grup A</option>
+            <option>Grup B</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option>Tüm Yapılandırmalar</option>
+            <option>Standart</option>
+            <option>Kiosk</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <a class="collapse-control">Daha fazla parametre ▾</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-5">
+          <input type="text" class="form-control" placeholder="Cihaz no, IMEI veya açıklama ile ara…">
+        </div>
+        <div class="col-sm-7 text-right">
+          <button class="btn btn-default">Ara</button>
+          &nbsp;
+          <button class="btn btn-default">Grup İşlemi ▾</button>
+          &nbsp;
+          <button class="btn btn-default">+ Ekle</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- ===== DEVICES TABLE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">CİHAZLAR TABLOSU</div>
+    <div class="custom-pagination-wrapper">
+      <div class="custom-pagination">
+        <div class="pagination-label">1–25 / 142</div>
+        <ul class="pagination pagination-sm">
+          <li><a>«</a></li>
+          <li><a>‹</a></li>
+          <li class="active"><a>1</a></li>
+          <li><a>2</a></li>
+          <li><a>3</a></li>
+          <li><a>›</a></li>
+          <li><a>»</a></li>
+        </ul>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><input type="checkbox"></th>
+          <th class="pointer">Durum</th>
+          <th class="pointer">Son Güncelleme ↕</th>
+          <th class="pointer">Cihaz No</th>
+          <th class="pointer">IMEI</th>
+          <th class="pointer">Model</th>
+          <th class="pointer">Yapılandırma</th>
+          <th class="pointer">Grup</th>
+          <th class="actions-column">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><img src="server/src/main/webapp/images/online.png" class="device-indicator" title="Çevrimiçi"></td>
+          <td>19.05.2026 09:38</td>
+          <td><strong>DEV-001</strong></td>
+          <td>358421090123456</td>
+          <td>Samsung Galaxy Tab A8</td>
+          <td><a class="action-link">Standart Yapılandırma</a></td>
+          <td>Depo</td>
+          <td class="deviceActions">
+            <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-default" title="QR Kod"><span class="glyphicon glyphicon-qrcode"></span></button>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            <button class="btn btn-default" title="Daha fazla"><span class="glyphicon glyphicon-option-horizontal"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><img src="server/src/main/webapp/images/offline.png" class="device-indicator" title="Çevrimdışı"></td>
+          <td>18.05.2026 14:12</td>
+          <td><strong>DEV-002</strong></td>
+          <td>358421090654321</td>
+          <td>Huawei MatePad T10</td>
+          <td><a class="action-link">Kiosk Modu</a></td>
+          <td>Mağaza</td>
+          <td class="deviceActions">
+            <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-default" title="QR Kod"><span class="glyphicon glyphicon-qrcode"></span></button>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            <button class="btn btn-default" title="Daha fazla"><span class="glyphicon glyphicon-option-horizontal"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><img src="server/src/main/webapp/images/online.png" class="device-indicator" title="Çevrimiçi"></td>
+          <td>19.05.2026 09:40</td>
+          <td><strong>DEV-003</strong></td>
+          <td>358421090789012</td>
+          <td>Lenovo Tab M10</td>
+          <td><a class="action-link">Standart Yapılandırma</a></td>
+          <td>Ofis</td>
+          <td class="deviceActions">
+            <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-default" title="QR Kod"><span class="glyphicon glyphicon-qrcode"></span></button>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            <button class="btn btn-default" title="Daha fazla"><span class="glyphicon glyphicon-option-horizontal"></span></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== APPLICATIONS TABLE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">UYGULAMALAR TABLOSU</div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Uygulama ara…">
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-default">+ Ekle</button>
+        </div>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Paket Adı</th>
+          <th>Uygulama Adı</th>
+          <th>Sürüm</th>
+          <th>URL</th>
+          <th class="actions-column-150">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>com.example.warehouse</td>
+          <td><strong>Depo Yönetim</strong></td>
+          <td>2.4.1</td>
+          <td><span class="configuration-hint">https://cdn.example.com/…</span></td>
+          <td>
+            <div>
+              <button class="btn btn-default" title="Sürümler"><span class="glyphicon glyphicon-sound-5-1"></span></button>
+              <button class="btn btn-default" title="Yapılandırmalar"><span class="glyphicon glyphicon-list"></span></button>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>com.example.pos</td>
+          <td><strong>Satış Noktası</strong></td>
+          <td>1.8.0</td>
+          <td><span class="configuration-hint">https://cdn.example.com/…</span></td>
+          <td>
+            <div>
+              <button class="btn btn-default" title="Sürümler"><span class="glyphicon glyphicon-sound-5-1"></span></button>
+              <button class="btn btn-default" title="Yapılandırmalar"><span class="glyphicon glyphicon-list"></span></button>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Sil" disabled><span class="glyphicon glyphicon-trash"></span></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== CONFIGURATIONS TABLE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">YAPILANDIRMALAR TABLOSU</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Yapılandırma Adı</th>
+          <th>Açıklama</th>
+          <th class="actions-column-150">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Standart Yapılandırma</strong></td>
+          <td><span class="list-desc">Genel kullanım için varsayılan profil</span></td>
+          <td>
+            <div>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Kopyala"><span class="glyphicon glyphicon-duplicate"></span></button>
+              <button class="btn btn-default" title="QR Kod"><span class="glyphicon glyphicon-qrcode"></span></button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Kiosk Modu</strong></td>
+          <td><span class="list-desc">Tek uygulama kiosk kurulumu</span></td>
+          <td>
+            <div>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+              <button class="btn btn-default" title="Kopyala"><span class="glyphicon glyphicon-duplicate"></span></button>
+              <button class="btn btn-default" title="QR Kod"><span class="glyphicon glyphicon-qrcode"></span></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== FILES TABLE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">DOSYALAR TABLOSU</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Dosya Adı</th>
+          <th>Açıklama</th>
+          <th>Boyut</th>
+          <th>Son Güncelleme</th>
+          <th>Cihaz Yolu</th>
+          <th class="actions-column">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>config.json</strong></td>
+          <td><span class="list-desc">Uygulama konfigürasyon dosyası</span></td>
+          <td>4.2 KB</td>
+          <td>19.05.2026</td>
+          <td><code>/sdcard/config.json</code></td>
+          <td>
+            <div><nobr>
+              <button class="btn btn-default" title="Link Kopyala"><span class="glyphicon glyphicon-link"></span></button>
+              <button class="btn btn-default" title="Yapılandırmalar"><span class="glyphicon glyphicon-list"></span></button>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            </nobr></div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>logo.png</strong></td>
+          <td><span class="list-desc">Şirket logosu</span></td>
+          <td>28.7 KB</td>
+          <td>12.05.2026</td>
+          <td><code>/sdcard/logo.png</code></td>
+          <td>
+            <div><nobr>
+              <button class="btn btn-default" title="Link Kopyala"><span class="glyphicon glyphicon-link"></span></button>
+              <button class="btn btn-default" title="Yapılandırmalar"><span class="glyphicon glyphicon-list"></span></button>
+              <button class="btn btn-default" title="Düzenle"><span class="glyphicon glyphicon-pencil"></span></button>
+              <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+            </nobr></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== PUSH MESSAGES TABLE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">FONKSİYONLAR — PUSH MESAJLARI (silme butonu yeni eklendi)</div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-3">
+          <input type="text" class="form-control" placeholder="Cihaz numarası…">
+        </div>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Mesaj içeriği ara…">
+        </div>
+        <div class="col-sm-3 text-right">
+          <button class="btn btn-default">Ara</button>
+          &nbsp;
+          <button class="btn btn-default">+ Yeni Mesaj</button>
+        </div>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tarih/Saat ↕</th>
+          <th>Cihaz No</th>
+          <th>Mesaj Tipi</th>
+          <th>İçerik</th>
+          <th class="actions-column">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>19.05.2026 09:35:22</td>
+          <td>DEV-001</td>
+          <td><code>configUpdated</code></td>
+          <td></td>
+          <td>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td>19.05.2026 08:10:05</td>
+          <td>DEV-003</td>
+          <td><code>runApp</code></td>
+          <td><code>{"pkg": "com.example.warehouse"}</code></td>
+          <td>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td>18.05.2026 17:45:00</td>
+          <td>DEV-002</td>
+          <td><code>reboot</code></td>
+          <td></td>
+          <td>
+            <button class="btn btn-default" title="Sil"><span class="glyphicon glyphicon-trash"></span></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== SETTINGS SECTION ===== -->
+  <div class="preview-section">
+    <div class="preview-label">AYARLAR — KULLANICI FORMU</div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Kullanıcı Adı</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" value="admin@tahirova.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Ad Soyad</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" value="Sistem Yöneticisi">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Rol</label>
+        <div class="col-sm-4">
+          <select class="form-control">
+            <option selected>Süper Yönetici</option>
+            <option>Yönetici</option>
+            <option>Okuyucu</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+          <button class="btn btn-default">Kaydet</button>
+          &nbsp;
+          <button class="btn btn-default">İptal</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- ===== LOGIN PAGE ===== -->
+  <div class="preview-section">
+    <div class="preview-label">GİRİŞ EKRANI</div>
+    <div style="max-width:480px; margin:0 auto;">
+      <div class="login-logo text-center">
+        <span class="logo">Tahirova Teknoloji</span>
+      </div>
+      <div class="panel panel-default login" style="position:relative; margin:16px auto 0;">
+        <div class="panel-body" style="padding:32px; background:#fff;">
+          <form>
+            <div class="form-group" style="margin-bottom:14px">
+              <label>Kullanıcı Adı</label>
+              <input type="text" class="form-control" placeholder="E-posta adresiniz" value="admin@tahirova.com">
+            </div>
+            <div class="form-group" style="margin-bottom:14px">
+              <label>Şifre</label>
+              <input type="password" class="form-control" placeholder="Şifreniz" value="••••••••">
+            </div>
+            <div style="text-align:right; margin-top:18px;">
+              <button class="btn btn-default right" style="opacity:1">Giriş Yap</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="login-footer" style="position:relative; padding-top:10px; text-align:center; margin-top:10px; border-top:1px solid #d1dde8;">
+        Tahirova Teknoloji MDM Platformu — &copy; 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RENK PALETİ ===== -->
+  <div class="preview-section">
+    <div class="preview-label">RENK PALETİ</div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#1e3a5c;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Primary<br>#1e3a5c</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#2c5f8a;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Mid<br>#2c5f8a</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#4a8fc1;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Light<br>#4a8fc1</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#3b82f6;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Accent<br>#3b82f6</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#f0f4f8;border:1px solid #d1dde8;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">BG<br>#f0f4f8</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#0f7a4e;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Success<br>#0f7a4e</small>
+      </div>
+      <div style="text-align:center">
+        <div style="width:80px;height:50px;border-radius:6px;background:#c0392b;margin-bottom:4px;"></div>
+        <small style="font-size:11px;color:#6b7f90">Danger<br>#c0392b</small>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+</div><!-- /content-wrapper -->
+
+<!-- Bootstrap JS -->
+<script src="server/webtarget/bower_components/intro.js/example/bootstrap/v3/vendor/jquery/jquery.min.js"></script>
+<script src="server/webtarget/bower_components/intro.js/example/bootstrap/v3/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

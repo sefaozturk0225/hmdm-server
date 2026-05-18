@@ -982,17 +982,17 @@ document.localization ['vi_VN'] = {
     'breadcrumb.config.details': 'Chi tiết',
     'breadcrumb.application.versions': 'Phiên bản',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name': "h-mdm.com",
-    'app.vendor.link': "https://h-mdm.com",
-    'app.description': 'là một hệ thống quản lý thiết bị di động mã nguồn mở',
+    'app.name': 'Tahirova Teknoloji',
+    'app.vendor.name': "Tahirova Teknoloji",
+    'app.vendor.link': "https://tahirovateknoloji.com",
+    'app.description': 'là nền tảng quản lý thiết bị di động của Tahirova Teknoloji',
     'app.title': 'Bảng ${appName} Web',
 
     'box.show.my.apps.only': 'Chỉ hiển thị ứng dụng của tôi',
     'configuration.app.version.upgrade.message': 'Đã cài ${installedVersion}, có phiên bản ${latestVersion}',
 
     'about.line.1': 'Bảng điều khiển ${appName}',
-    'about.line.2': 'MDM mã nguồn mở cho Android',
+    'about.line.2': 'Nền tảng MDM Tahirova Teknoloji',
     'about.line.3': 'Phiên bản ${versionNumber}',
     'about.line.4': 'Các plugin đã cài đặt',
 

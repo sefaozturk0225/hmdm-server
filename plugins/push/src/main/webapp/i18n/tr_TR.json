@@ -52,5 +52,6 @@
 	"table.heading.plugin.push.weekday": "Hafta içi",
 	"table.heading.plugin.push.month": "Aylar",
 	"plugin.push.schedule.success": "Görev başarıyla zamanlandı",
-	"plugin.push.delete.task": "Bu zamanlanmış görevi sil?"
+  "plugin.push.delete.task": "Bu zamanlanmış görevi sil?",
+  "plugin.push.delete.message": "Bu push mesajını sil?"
 }

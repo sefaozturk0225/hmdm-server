@@ -52,5 +52,6 @@
   "table.heading.plugin.push.weekday": "Weekdays",
   "table.heading.plugin.push.month": "Months",
   "plugin.push.schedule.success": "Task successfully scheduled",
-  "plugin.push.delete.task": "Delete this scheduled task?"
+  "plugin.push.delete.task": "Delete this scheduled task?",
+  "plugin.push.delete.message": "Delete this push message?"
 }

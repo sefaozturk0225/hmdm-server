@@ -949,9 +949,9 @@ document.localization ['ar_AE'] = {
     'breadcrumb.config.details': 'تفاصيل',
     "breadcrumb.application.versions": 'إصدارات',
 
-    "app.name": 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
+    "app.name": 'Tahirova Teknoloji',
+    'app.vendor.name':"Tahirova Teknoloji",
+    'app.vendor.link':"https://tahirovateknoloji.com",
     "app.description": 'هو نظام إدارة الأجهزة المحمولة مفتوح المصدر',
     "app.title": '${appName} لوحة ويب',
 
@@ -959,7 +959,7 @@ document.localization ['ar_AE'] = {
     'config.app.version.upgrade.message': '${installVersion} الإصدار المثبت , ${latestVersion} الإصدار المتاح ',
 
     "about.line.1": '${appName} لوحة تحكم',
-    'about.line.2': 'Android مشغل المؤسسة لـ',
+    'about.line.2': 'منصة Tahirova Teknoloji لإدارة الأجهزة',
     'about.line.3': '${versionNumber} الإصدار',
     'about.line.4': 'الاعدادات الإضافية المثبتة',
 

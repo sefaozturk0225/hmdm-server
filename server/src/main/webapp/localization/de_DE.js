@@ -949,17 +949,17 @@ document.localization ['de_DE'] = {
     'breadcrumb.config.details': 'Details',
     'breadcrumb.application.versions': 'Versionen',
 
-    'app.name': 'Headwind MDM',
-    'app.vendor.name':"h-mdm.com",
-    'app.vendor.link':"https://h-mdm.com",
-    'app.description': 'ist das Open-Source-Managementsystem für mobile Geräte',
+    'app.name': 'Tahirova Teknoloji',
+    'app.vendor.name':"Tahirova Teknoloji",
+    'app.vendor.link':"https://tahirovateknoloji.com",
+    'app.description': 'ist eine MDM-Plattform von Tahirova Teknoloji',
     'app.title': '${appName}-Webpanel',
 
     'box.show.my.apps.only': 'Nur meine Anwendungen anzeigen',
     'configuration.app.version.upgrade.message': 'Installierte Version ${installedVersion}, verfügbare Version ${latestVersion}',
 
     'about.line.1': '${appName}-Bedienfeld',
-    'about.line.2': 'Enterprise Launcher für Android',
+    'about.line.2': 'Tahirova Teknoloji MDM-Plattform',
     'about.line.3': 'Version ${versionNumber}',
     'about.line.4': 'Installierte Plugins',
 
