@@ -1105,7 +1105,7 @@ angular.module('headwind-kiosk')
                 'dynamicButtonTextSuffix': localization.localize('table.filtering.suffix.group')
             };
 
-            var deviceFields = ["id", "number", "description", "configurationId", "imei", "phone", "groups", "custom1", "custom2", "custom3", "oldNumber"];
+            var deviceFields = ["id", "number", "description", "configurationId", "imei", "phone", "groups", "custom1", "custom2", "custom3", "oldNumber", "showAdminButton", "showInfoButton", "showUpdateButton"];
             $scope.device = {};
             for (var prop in device) {
                 if (device.hasOwnProperty(prop)) {

@@ -147,6 +147,8 @@ public interface SyncResponseInt {
 
     Boolean getShowWifi();
 
+    Boolean getShowAdminButton();
+
     Boolean getShowInfoButton();
 
     Boolean getShowUpdateButton();

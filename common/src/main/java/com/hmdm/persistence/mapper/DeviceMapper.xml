@@ -27,6 +27,7 @@
         SELECT devices.id AS deviceId, devices.number, devices.description, devices.lastUpdate,
                devices.configurationId, devices.info, devices.imei, devices.phone, devices.customerId,
                devices.custom1, devices.custom2, devices.custom3, devices.oldNumber,
+               devices.showAdminButton, devices.showInfoButton, devices.showUpdateButton,
                groups.id AS groupId, groups.name AS groupName,
                configurations.name as configName
         FROM devices
@@ -60,6 +61,9 @@
         <result property="custom3" column="custom3"/>
         <result property="oldNumber" column="oldNumber"/>
         <result property="fastSearch" column="fastSearch"/>
+        <result property="showAdminButton" column="showAdminButton"/>
+        <result property="showInfoButton" column="showInfoButton"/>
+        <result property="showUpdateButton" column="showUpdateButton"/>
 
         <collection property="groups" ofType="com.hmdm.rest.json.LookupItem">
             <result property="id" column="groupId"/>
@@ -69,16 +73,22 @@
 
     <insert id="insertDevice" parameterType="Device" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO devices(number, description, lastUpdate, configurationId,
-            imei, phone, customerId, custom1, custom2, custom3, oldNumber, fastSearch)
+            imei, phone, customerId, custom1, custom2, custom3, oldNumber, fastSearch,
+            showAdminButton, showInfoButton, showUpdateButton)
         VALUES (#{number}, #{description}, #{lastUpdate}, #{configurationId},
-            #{imei}, #{phone}, #{customerId}, #{custom1}, #{custom2}, #{custom3}, #{oldNumber}, #{fastSearch});
+            #{imei}, #{phone}, #{customerId}, #{custom1}, #{custom2}, #{custom3}, #{oldNumber}, #{fastSearch},
+            COALESCE(#{showAdminButton}, true), COALESCE(#{showInfoButton}, true), COALESCE(#{showUpdateButton}, true));
     </insert>
 
     <update id="updateDevice" parameterType="Device">
         UPDATE devices SET number = #{number}, description = #{description},
                            configurationId = #{configurationId}, imei = #{imei}, phone = #{phone},
                            custom1=#{custom1}, custom2=#{custom2}, custom3=#{custom3},
-                           oldNumber=#{oldNumber}, fastSearch=#{fastSearch} WHERE id = #{id}
+                           oldNumber=#{oldNumber}, fastSearch=#{fastSearch},
+                           showAdminButton = COALESCE(#{showAdminButton}, true),
+                           showInfoButton  = COALESCE(#{showInfoButton},  true),
+                           showUpdateButton = COALESCE(#{showUpdateButton}, true)
+        WHERE id = #{id}
     </update>
 
     <sql id="allowedDevicesSelect">
@@ -252,6 +262,7 @@
                devices.infojson ->> 'androidVersion' AS androidVersion,
                devices.infojson ->> 'serial' AS serial,
                devices.custom1, devices.custom2, devices.custom3, devices.oldNumber, devices.fastSearch,
+               devices.showAdminButton, devices.showInfoButton, devices.showUpdateButton,
                groups.id AS groupId, groups.name AS groupName,
                configurations.name as configName,
                applications.pkg AS launcherPkg,

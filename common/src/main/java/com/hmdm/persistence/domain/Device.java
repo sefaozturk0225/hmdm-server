@@ -104,6 +104,13 @@ public class Device implements CustomerData, Serializable {
     @ApiModelProperty(hidden = true)
     private String serial;
 
+    @ApiModelProperty("Show the Admin (key) button on the launcher side panel for this device")
+    private Boolean showAdminButton;
+    @ApiModelProperty("Show the Info button on the launcher side panel for this device")
+    private Boolean showInfoButton;
+    @ApiModelProperty("Show the Update/Download button on the launcher side panel for this device")
+    private Boolean showUpdateButton;
+
     public Device() {
     }
 
@@ -351,6 +358,30 @@ public class Device implements CustomerData, Serializable {
 
     public void setSerial(String serial) {
         this.serial = serial;
+    }
+
+    public Boolean getShowAdminButton() {
+        return showAdminButton;
+    }
+
+    public void setShowAdminButton(Boolean showAdminButton) {
+        this.showAdminButton = showAdminButton;
+    }
+
+    public Boolean getShowInfoButton() {
+        return showInfoButton;
+    }
+
+    public void setShowInfoButton(Boolean showInfoButton) {
+        this.showInfoButton = showInfoButton;
+    }
+
+    public Boolean getShowUpdateButton() {
+        return showUpdateButton;
+    }
+
+    public void setShowUpdateButton(Boolean showUpdateButton) {
+        this.showUpdateButton = showUpdateButton;
     }
 
     public String getFastSearch() {

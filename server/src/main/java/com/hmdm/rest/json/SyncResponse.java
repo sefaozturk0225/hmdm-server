@@ -133,6 +133,10 @@ public class SyncResponse implements Serializable, SyncResponseInt {
     @ApiModelProperty("Show WiFi settings if there's a connection error, also in Kiosk mode")
     private Boolean showWifi;
 
+    @ApiModelProperty("Show the Admin (key) button on the launcher side panel")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean showAdminButton;
+
     @ApiModelProperty("Show the Info button on the launcher")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean showInfoButton;
@@ -829,6 +833,15 @@ public class SyncResponse implements Serializable, SyncResponseInt {
 
     public void setShowWifi(Boolean showWifi) {
         this.showWifi = showWifi;
+    }
+
+    @Override
+    public Boolean getShowAdminButton() {
+        return showAdminButton;
+    }
+
+    public void setShowAdminButton(Boolean showAdminButton) {
+        this.showAdminButton = showAdminButton;
     }
 
     @Override

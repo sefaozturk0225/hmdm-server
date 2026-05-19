@@ -89,6 +89,40 @@
             </div>
         </div>
 
+        <div class='form-group' ng-if="canEditDevice">
+            <div class='col-sm-12'>
+                <hr style="margin: 10px 0 6px; border-color: #dce3ec;">
+                <label style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#3a5068;margin-bottom:10px;" localized>form.device.launcher.buttons.section</label>
+            </div>
+        </div>
+
+        <div class='form-group' ng-if="canEditDevice">
+            <label class='col-sm-7 control-label' localized>form.device.show.admin.button</label>
+            <div class='col-sm-1'>
+                <input ng-model='device.showAdminButton' type='checkbox' class='form-control common-checkbox'
+                       ng-init="device.showAdminButton = (device.showAdminButton !== false)"/>
+            </div>
+            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.admin.button.hint</div>
+        </div>
+
+        <div class='form-group' ng-if="canEditDevice">
+            <label class='col-sm-7 control-label' localized>form.device.show.info.button</label>
+            <div class='col-sm-1'>
+                <input ng-model='device.showInfoButton' type='checkbox' class='form-control common-checkbox'
+                       ng-init="device.showInfoButton = (device.showInfoButton !== false)"/>
+            </div>
+            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.info.button.hint</div>
+        </div>
+
+        <div class='form-group' ng-if="canEditDevice">
+            <label class='col-sm-7 control-label' localized>form.device.show.update.button</label>
+            <div class='col-sm-1'>
+                <input ng-model='device.showUpdateButton' type='checkbox' class='form-control common-checkbox'
+                       ng-init="device.showUpdateButton = (device.showUpdateButton !== false)"/>
+            </div>
+            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.update.button.hint</div>
+        </div>
+
         <div class='form-group'>
             <div class='col-sm-offset-4 col-sm-8'>
                 <button type='submit' class='btn btn-default' ng-click='save()' ng-disabled="loading"

@@ -577,6 +577,13 @@ document.localization ['de_DE'] = {
     'form.device.config': 'Konfiguration',
     'form.device.imei': 'IMEI',
     'form.device.phone.number': 'Telefonnummer',
+    'form.device.launcher.buttons.section': 'Sichtbarkeit der Launcher-Schaltflächen',
+    'form.device.show.admin.button': 'Admin-Schaltfläche (Schlüssel) anzeigen',
+    'form.device.show.admin.button.hint': 'Zeigt/versteckt das Schlüssel-Symbol im Launcher',
+    'form.device.show.info.button': 'Info-Schaltfläche anzeigen',
+    'form.device.show.info.button.hint': 'Zeigt/versteckt das Info-Symbol im Launcher',
+    'form.device.show.update.button': 'Update-Schaltfläche anzeigen',
+    'form.device.show.update.button.hint': 'Zeigt/versteckt das Download-Symbol im Launcher',
 
     'form.update.device.config': 'Konfiguration',
     'form.update.device.action': 'Gruppenaktion',

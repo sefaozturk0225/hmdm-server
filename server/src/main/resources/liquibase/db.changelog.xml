@@ -2634,4 +2634,20 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="19.05.26-11:00" author="ttk" context="common">
+        <comment>Column,new: devices#showAdminButton, devices#showInfoButton, devices#showUpdateButton (per-device launcher button visibility)</comment>
+        <sql>
+            ALTER TABLE devices
+            ADD COLUMN showAdminButton BOOLEAN DEFAULT true,
+            ADD COLUMN showInfoButton  BOOLEAN DEFAULT true,
+            ADD COLUMN showUpdateButton BOOLEAN DEFAULT true;
+        </sql>
+        <rollback>
+            ALTER TABLE devices
+            DROP COLUMN showAdminButton,
+            DROP COLUMN showInfoButton,
+            DROP COLUMN showUpdateButton;
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

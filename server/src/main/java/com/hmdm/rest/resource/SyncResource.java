@@ -399,9 +399,22 @@ public class SyncResource {
         data.setPermissive(configuration.getPermissive());
         data.setKioskExit(configuration.getKioskExit());
         data.setShowWifi(configuration.getShowWifi());
-        // null defaults to true (show) so the launcher shows buttons unless explicitly disabled
+        // Config-level button visibility (null = show by default)
         data.setShowInfoButton(configuration.getShowInfoButton() == null || configuration.getShowInfoButton() ? null : false);
         data.setShowUpdateButton(configuration.getShowUpdateButton() == null || configuration.getShowUpdateButton() ? null : false);
+
+        // Per-device button overrides: device setting of false ALWAYS hides the button,
+        // regardless of the configuration-level setting.
+        // Admin button only exists at device level (no config-level counterpart).
+        if (dbDevice.getShowAdminButton() != null && !dbDevice.getShowAdminButton()) {
+            data.setShowAdminButton(false);
+        }
+        if (dbDevice.getShowInfoButton() != null && !dbDevice.getShowInfoButton()) {
+            data.setShowInfoButton(false);
+        }
+        if (dbDevice.getShowUpdateButton() != null && !dbDevice.getShowUpdateButton()) {
+            data.setShowUpdateButton(false);
+        }
 
         data.setKioskMode(configuration.isKioskMode());
         if (data.isKioskMode()) {

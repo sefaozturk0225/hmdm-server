@@ -577,6 +577,13 @@ document.localization ['tr_TR'] = {
 	'form.device.config': 'Yapılandırma',
 	'form.device.imei': 'IMEI',
 	'form.device.phone.number': 'Telefon Numarası',
+    'form.device.launcher.buttons.section': 'Başlatıcı Düğme Görünürlüğü',
+    'form.device.show.admin.button': 'Yönetici (Anahtar) düğmesini göster',
+    'form.device.show.admin.button.hint': 'Başlatıcı yan panelinde anahtar simgesini gösterir/gizler',
+    'form.device.show.info.button': 'Bilgi düğmesini göster',
+    'form.device.show.info.button.hint': 'Başlatıcı yan panelinde bilgi simgesini gösterir/gizler',
+    'form.device.show.update.button': 'Güncelleme düğmesini göster',
+    'form.device.show.update.button.hint': 'Başlatıcı yan panelinde indirme simgesini gösterir/gizler',
 
 	'form.update.device.config': 'Yapılandırma',
 	'form.update.device.action': 'Grup eylemi',

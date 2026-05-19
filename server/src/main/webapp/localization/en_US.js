@@ -577,6 +577,13 @@ document.localization ['en_US'] = {
     'form.device.config': 'Configuration',
     'form.device.imei': 'IMEI',
     'form.device.phone.number': 'Phone Number',
+    'form.device.launcher.buttons.section': 'Launcher Button Visibility',
+    'form.device.show.admin.button': 'Show Admin (Key) button',
+    'form.device.show.admin.button.hint': 'Shows/hides the key icon on the launcher side panel',
+    'form.device.show.info.button': 'Show Info button',
+    'form.device.show.info.button.hint': 'Shows/hides the info icon on the launcher side panel',
+    'form.device.show.update.button': 'Show Update button',
+    'form.device.show.update.button.hint': 'Shows/hides the download icon on the launcher side panel',
 
     'form.update.device.config': 'Configuration',
     'form.update.device.action': 'Group action',
