@@ -1,0 +1,17 @@
+{
+  "breadcrumb.plugin.xtra.main": "Daha fazla eklenti",
+  "plugin.xtra.localization.key.name": "Daha fazla eklenti...",
+  "plugin.xtra.tab.title": "Tahirova Teknoloji ile daha fazla özellik!",
+  "plugin.xtra.feature.kiosk": "Kiosk (tek görevli) modu",
+  "plugin.xtra.feature.location": "Cihaz konum takibi",
+  "plugin.xtra.feature.reset": "Uzaktan yeniden başlatma, kilitleme ve fabrika sıfırlaması",
+  "plugin.xtra.feature.photo": "Cihazlardan fotoğraf yükleme",
+  "plugin.xtra.feature.remote": "Uzaktan kontrol",
+  "plugin.xtra.feature.filtering": "Ağ trafiği filtreleme",
+  "plugin.xtra.feature.ldap": "LDAP entegrasyonu",
+  "plugin.xtra.feature.export": "Cihazları dışa/içe aktarma",
+  "plugin.xtra.feature.contacts": "Cihaz kişilerini yönetme",
+  "plugin.xtra.feature.rebranding": "Özel markalama (rebranding) yazılımı",
+  "plugin.xtra.upgrade.free": "Sisteminizi deneme sürümüne yükseltmek çok kolay ve tamamen ÜCRETSİZ!",
+  "plugin.xtra.request.trial": "Ücretsiz deneme sürümü edinin!"
+}
