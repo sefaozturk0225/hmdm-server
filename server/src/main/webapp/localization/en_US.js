@@ -1122,6 +1122,8 @@ document.localization ['en_US'] = {
     'permission.files': 'View files',
     'permission.edit_files': 'Manage files',
 
+    'toggle.on': 'ON',
+    'toggle.off': 'OFF',
     'yes': 'yes',
     'no': 'no'
 };

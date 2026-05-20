@@ -1123,6 +1123,8 @@ document.localization ['de_DE'] = {
     'permission.files': 'Dateien anzeigen',
     'permission.edit_files': 'Dateien verwalten',
 
+    'toggle.on': 'EIN',
+    'toggle.off': 'AUS',
     'yes': 'Ja',
     'no': 'Nein'
 };

@@ -91,36 +91,51 @@
 
         <div class='form-group' ng-if="canEditDevice">
             <div class='col-sm-12'>
-                <hr style="margin: 10px 0 6px; border-color: #dce3ec;">
-                <label style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#3a5068;margin-bottom:10px;" localized>form.device.launcher.buttons.section</label>
+                <hr style="margin: 10px 0 10px; border-color: #dce3ec;">
+                <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#3a5068;" localized>form.device.launcher.buttons.section</span>
             </div>
         </div>
 
-        <div class='form-group' ng-if="canEditDevice">
-            <label class='col-sm-7 control-label' localized>form.device.show.admin.button</label>
-            <div class='col-sm-1'>
-                <input ng-model='device.showAdminButton' type='checkbox' class='form-control common-checkbox'
-                       ng-init="device.showAdminButton = (device.showAdminButton !== false)"/>
+        <div class='form-group' ng-if="canEditDevice"
+             ng-init="device.showAdminButton = (device.showAdminButton !== false)">
+            <label class='col-sm-5 control-label' style="padding-top:6px;" localized>form.device.show.admin.button</label>
+            <div class='col-sm-7'>
+                <label class='tt-toggle'>
+                    <input type='checkbox' ng-model='device.showAdminButton'/>
+                    <span class='tt-toggle-slider'></span>
+                    <span class='tt-toggle-on'  localized>toggle.on</span>
+                    <span class='tt-toggle-off' localized>toggle.off</span>
+                </label>
+                <div class='field-hint' style="margin-top:4px;" localized>form.device.show.admin.button.hint</div>
             </div>
-            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.admin.button.hint</div>
         </div>
 
-        <div class='form-group' ng-if="canEditDevice">
-            <label class='col-sm-7 control-label' localized>form.device.show.info.button</label>
-            <div class='col-sm-1'>
-                <input ng-model='device.showInfoButton' type='checkbox' class='form-control common-checkbox'
-                       ng-init="device.showInfoButton = (device.showInfoButton !== false)"/>
+        <div class='form-group' ng-if="canEditDevice"
+             ng-init="device.showInfoButton = (device.showInfoButton !== false)">
+            <label class='col-sm-5 control-label' style="padding-top:6px;" localized>form.device.show.info.button</label>
+            <div class='col-sm-7'>
+                <label class='tt-toggle'>
+                    <input type='checkbox' ng-model='device.showInfoButton'/>
+                    <span class='tt-toggle-slider'></span>
+                    <span class='tt-toggle-on'  localized>toggle.on</span>
+                    <span class='tt-toggle-off' localized>toggle.off</span>
+                </label>
+                <div class='field-hint' style="margin-top:4px;" localized>form.device.show.info.button.hint</div>
             </div>
-            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.info.button.hint</div>
         </div>
 
-        <div class='form-group' ng-if="canEditDevice">
-            <label class='col-sm-7 control-label' localized>form.device.show.update.button</label>
-            <div class='col-sm-1'>
-                <input ng-model='device.showUpdateButton' type='checkbox' class='form-control common-checkbox'
-                       ng-init="device.showUpdateButton = (device.showUpdateButton !== false)"/>
+        <div class='form-group' ng-if="canEditDevice"
+             ng-init="device.showUpdateButton = (device.showUpdateButton !== false)">
+            <label class='col-sm-5 control-label' style="padding-top:6px;" localized>form.device.show.update.button</label>
+            <div class='col-sm-7'>
+                <label class='tt-toggle'>
+                    <input type='checkbox' ng-model='device.showUpdateButton'/>
+                    <span class='tt-toggle-slider'></span>
+                    <span class='tt-toggle-on'  localized>toggle.on</span>
+                    <span class='tt-toggle-off' localized>toggle.off</span>
+                </label>
+                <div class='field-hint' style="margin-top:4px;" localized>form.device.show.update.button.hint</div>
             </div>
-            <div class='col-sm-4 field-hint' style="padding-top:7px;" localized>form.device.show.update.button.hint</div>
         </div>
 
         <div class='form-group'>

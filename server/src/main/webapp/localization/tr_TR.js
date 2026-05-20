@@ -1137,6 +1137,8 @@ document.localization ['tr_TR'] = {
 	'permission.files': 'Dosyaları görüntüle',
 	'permission.edit_files': 'Dosyaları yönet',
 
-	'yes': 'yes',
+	'toggle.on': 'AÇIK',
+    'toggle.off': 'KAPALI',
+    'yes': 'yes',
 	'no': 'no'
 };

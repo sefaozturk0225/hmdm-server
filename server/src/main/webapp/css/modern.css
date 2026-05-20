@@ -824,3 +824,85 @@ a#headerExpiryWarning.expiry-warning {
     padding: 8px 10px !important;
   }
 }
+
+/* ─────────────────────────────────────────────
+   TOGGLE SWITCH  (.tt-toggle)
+   Usage: <label class="tt-toggle">
+            <input type="checkbox" ng-model="...">
+            <span class="tt-toggle-slider"></span>
+            <span class="tt-toggle-on">ON</span>
+            <span class="tt-toggle-off">OFF</span>
+          </label>
+   ───────────────────────────────────────────── */
+.tt-toggle {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          8px;
+  cursor:       pointer;
+  user-select:  none;
+  margin:       0;
+  font-weight:  normal;
+  line-height:  1;
+}
+
+/* hide native checkbox */
+.tt-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity:  0;
+  width:    0;
+  height:   0;
+  margin:   0;
+}
+
+/* track */
+.tt-toggle-slider {
+  position:      relative;
+  display:       inline-block;
+  width:         44px;
+  height:        24px;
+  border-radius: 12px;
+  background:    #c8d0d8;
+  transition:    background .2s;
+  flex-shrink:   0;
+}
+
+/* thumb */
+.tt-toggle-slider::after {
+  content:       '';
+  position:      absolute;
+  top:           3px;
+  left:          3px;
+  width:         18px;
+  height:        18px;
+  border-radius: 50%;
+  background:    #fff;
+  box-shadow:    0 1px 3px rgba(0,0,0,.20);
+  transition:    transform .2s, background .2s;
+}
+
+/* checked state */
+.tt-toggle input:checked + .tt-toggle-slider {
+  background: var(--c-blue, #1a6fba);
+}
+.tt-toggle input:checked + .tt-toggle-slider::after {
+  transform: translateX(20px);
+}
+
+/* focus ring */
+.tt-toggle input:focus + .tt-toggle-slider {
+  box-shadow: 0 0 0 3px rgba(26,111,186,.20);
+}
+
+/* ON / OFF labels */
+.tt-toggle-on,
+.tt-toggle-off {
+  font-size:   12px;
+  font-weight: 600;
+  min-width:   24px;
+}
+
+.tt-toggle-on  { color: var(--c-blue, #1a6fba); display: none; }
+.tt-toggle-off { color: var(--c-muted, #64748b);               }
+
+.tt-toggle input:checked ~ .tt-toggle-on  { display: inline; }
+.tt-toggle input:checked ~ .tt-toggle-off { display: none;   }
