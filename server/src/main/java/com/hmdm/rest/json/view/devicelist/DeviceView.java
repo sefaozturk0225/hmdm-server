@@ -190,6 +190,21 @@ public class DeviceView {
         return device.getStatusCode();
     }
 
+    @ApiModelProperty("Show admin button on the launcher side panel for this device")
+    public Boolean getShowAdminButton() {
+        return device.getShowAdminButton();
+    }
+
+    @ApiModelProperty("Show info button on the launcher side panel for this device")
+    public Boolean getShowInfoButton() {
+        return device.getShowInfoButton();
+    }
+
+    @ApiModelProperty("Show update button on the launcher side panel for this device")
+    public Boolean getShowUpdateButton() {
+        return device.getShowUpdateButton();
+    }
+
     @ApiModelProperty("An info on device state submitted by device to MDM server")
     public DeviceInfoView getInfo() {
         return deviceInfo;
