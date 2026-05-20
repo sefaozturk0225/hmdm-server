@@ -1115,6 +1115,11 @@ angular.module('headwind-kiosk')
                 }
             }
 
+            // Default launcher button visibility to true when not explicitly set
+            if ($scope.device.showAdminButton  === undefined || $scope.device.showAdminButton  === null) { $scope.device.showAdminButton  = true; }
+            if ($scope.device.showInfoButton   === undefined || $scope.device.showInfoButton   === null) { $scope.device.showInfoButton   = true; }
+            if ($scope.device.showUpdateButton === undefined || $scope.device.showUpdateButton === null) { $scope.device.showUpdateButton = true; }
+
             $scope.settings = settings;
 
             $scope.loading = false;
