@@ -77,7 +77,7 @@
             showAdminButton, showInfoButton, showUpdateButton)
         VALUES (#{number}, #{description}, #{lastUpdate}, #{configurationId},
             #{imei}, #{phone}, #{customerId}, #{custom1}, #{custom2}, #{custom3}, #{oldNumber}, #{fastSearch},
-            COALESCE(#{showAdminButton}, true), COALESCE(#{showInfoButton}, true), COALESCE(#{showUpdateButton}, true));
+            COALESCE(#{showAdminButton,jdbcType=BOOLEAN}, true), COALESCE(#{showInfoButton,jdbcType=BOOLEAN}, true), COALESCE(#{showUpdateButton,jdbcType=BOOLEAN}, true));
     </insert>
 
     <update id="updateDevice" parameterType="Device">
@@ -85,9 +85,9 @@
                            configurationId = #{configurationId}, imei = #{imei}, phone = #{phone},
                            custom1=#{custom1}, custom2=#{custom2}, custom3=#{custom3},
                            oldNumber=#{oldNumber}, fastSearch=#{fastSearch},
-                           showAdminButton = COALESCE(#{showAdminButton}, true),
-                           showInfoButton  = COALESCE(#{showInfoButton},  true),
-                           showUpdateButton = COALESCE(#{showUpdateButton}, true)
+                           showAdminButton = COALESCE(#{showAdminButton,jdbcType=BOOLEAN}, showAdminButton),
+                           showInfoButton  = COALESCE(#{showInfoButton,jdbcType=BOOLEAN},  showInfoButton),
+                           showUpdateButton = COALESCE(#{showUpdateButton,jdbcType=BOOLEAN}, showUpdateButton)
         WHERE id = #{id}
     </update>
 
