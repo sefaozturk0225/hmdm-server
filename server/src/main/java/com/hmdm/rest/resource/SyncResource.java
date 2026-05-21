@@ -201,13 +201,13 @@ public class SyncResource {
                 dbDevice = this.unsecureDAO.getDeviceByImeiOrSerial(number);
                 foundByImeiOrSerial = dbDevice != null;
                 if (foundByImeiOrSerial) {
-                    logger.info("IMEI/Serial {}: assigned existing number: {}", number, dbDevice.getNumber());
+                    logger.info("Device identified by hardware ID: assigned existing number: {}", dbDevice.getNumber());
                 }
             }
 
             // Device creation on demand
             if (dbDevice == null) {
-                logger.info("Creating device {} with options {}", number, createOptions.toString());
+                logger.info("Creating new device on demand");
                 dbDevice = unsecureDAO.createNewDeviceOnDemand(number, createOptions);
             }
 
@@ -267,7 +267,7 @@ public class SyncResource {
                 dbDevice = this.unsecureDAO.getDeviceByImeiOrSerial(number);
                 foundByImeiOrSerial = dbDevice != null;
                 if (foundByImeiOrSerial) {
-                    logger.info("IMEI/Serial {}: assigned existing number: {}", number, dbDevice.getNumber());
+                    logger.info("Device identified by hardware ID: assigned existing number: {}", dbDevice.getNumber());
                 }
             }
 
@@ -361,7 +361,9 @@ public class SyncResource {
         data.setDisableLocation(configuration.getDisableLocation());
         data.setAppPermissions(configuration.getAppPermissions().getTransmittedValue());
         data.setPushOptions(configuration.getPushOptions());
-        data.setKeepaliveTime(configuration.getKeepaliveTime());
+        Integer keepaliveTime = configuration.getKeepaliveTime();
+        data.setKeepaliveTime(keepaliveTime != null ? keepaliveTime : 3600);
+        data.setPassiveMode(configuration.getPassiveMode());
         data.setAutoBrightness(configuration.getAutoBrightness());
         if (data.getAutoBrightness() != null && !data.getAutoBrightness()) {
             // Set only if autoBrightness == false
@@ -542,7 +544,7 @@ public class SyncResource {
     public Response updateDeviceInfo(DeviceInfo deviceInfo,
                                      @Context HttpServletRequest request,
                                      @Context HttpServletResponse response) {
-        logger.debug("/public/sync/info --> {}", deviceInfo);
+        logger.debug("/public/sync/info --> deviceId: {}", deviceInfo != null ? deviceInfo.getDeviceId() : null);
 
         try {
             Device dbDevice = this.unsecureDAO.getDeviceByNumber(deviceInfo.getDeviceId());
@@ -642,7 +644,7 @@ public class SyncResource {
                                                 @ApiParam("An identifier of device within MDM server")
                                                         String deviceNumber,
                                             List<SyncApplicationSetting> applicationSettings) {
-        logger.debug("/public/sync/applicationSettings/{} --> {}", deviceNumber, applicationSettings);
+        logger.debug("/public/sync/applicationSettings --> {} settings", applicationSettings != null ? applicationSettings.size() : 0);
 
         try {
             Device dbDevice = this.unsecureDAO.getDeviceByNumber(deviceNumber);

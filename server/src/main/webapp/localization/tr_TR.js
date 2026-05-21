@@ -424,6 +424,7 @@ document.localization ['tr_TR'] = {
 	'form.configuration.settings.minutes.5' : '5 dakika',
 	'form.configuration.settings.minutes.10' : '10 dakika',
 	'form.configuration.settings.minutes.15' : '15 dakika',
+    'form.configuration.settings.hour.1' : '1 saat',
 	'form.configuration.settings.password.mode' : 'Parola gereksinimleri',
 	'form.configuration.settings.password.mode.any' : 'Hiçbiri',
 	'form.configuration.settings.password.mode.present' : 'Şifre sunar',
@@ -1140,5 +1141,10 @@ document.localization ['tr_TR'] = {
 	'toggle.on': 'AÇIK',
     'toggle.off': 'KAPALI',
     'yes': 'yes',
-	'no': 'no'
+	'no': 'no',
+
+    'privacy.notice': 'Bu sistem yalnızca uygulama erişimini yönetir. Kişisel verilerinize erişilmemektedir.',
+
+    'form.configuration.settings.passive.mode': 'Pasif senkronizasyon modu (yalnızca başlangıçta)',
+    'form.configuration.settings.passive.mode.hint': 'Cihaz yapılandırmayı yalnızca uygulama başladığında senkronize eder, arka planda periyodik senkronizasyon yapılmaz'
 };

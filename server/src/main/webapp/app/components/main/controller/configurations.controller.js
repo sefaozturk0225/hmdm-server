@@ -1269,7 +1269,9 @@ angular.module('headwind-kiosk')
             let bConfigurationWasLost = false;
 
             $scope.configuration = {
-                defaultFilePath: "/Download/"
+                defaultFilePath: "/Download/",
+                pushOptions: 'http',
+                keepaliveTime: 3600
             };
             $scope.isTypical = ($stateParams.typical === 'true');
             $scope.saved = false;

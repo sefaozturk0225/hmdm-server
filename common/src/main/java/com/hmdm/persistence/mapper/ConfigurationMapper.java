@@ -83,6 +83,7 @@ public interface ConfigurationMapper {
             "appPermissions=#{appPermissions}, " +
             "pushOptions=#{pushOptions}, " +
             "keepaliveTime=#{keepaliveTime}, " +
+            "passiveMode=#{passiveMode}, " +
             "autoBrightness=#{autoBrightness}, " +
             "brightness=#{brightness}, " +
             "manageTimeout=#{manageTimeout}, " +

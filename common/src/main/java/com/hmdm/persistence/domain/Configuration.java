@@ -94,6 +94,8 @@ public class Configuration implements CustomerData, Serializable {
     private String pushOptions;
     @ApiModelProperty("Keep-Alive time for MQTT connection")
     private Integer keepaliveTime;
+    @ApiModelProperty("When true, device only syncs on app start (no periodic background sync)")
+    private Boolean passiveMode;
     @ApiModelProperty("Brightness management flag. null: not managed, false: manual, true: auto")
     private Boolean autoBrightness;
     @ApiModelProperty("Brightness value (if manual), 0-255")
@@ -696,6 +698,14 @@ public class Configuration implements CustomerData, Serializable {
         this.keepaliveTime = keepaliveTime;
     }
 
+    public Boolean getPassiveMode() {
+        return passiveMode;
+    }
+
+    public void setPassiveMode(Boolean passiveMode) {
+        this.passiveMode = passiveMode;
+    }
+
     public Boolean getAutoBrightness() {
         return autoBrightness;
     }
@@ -940,6 +950,7 @@ public class Configuration implements CustomerData, Serializable {
         copy.setAppPermissions(getAppPermissions());
         copy.setPushOptions(getPushOptions());
         copy.setKeepaliveTime(getKeepaliveTime());
+        copy.setPassiveMode(getPassiveMode());
         copy.setAutoBrightness(getAutoBrightness());
         copy.setBrightness(getBrightness());
         copy.setManageTimeout(getManageTimeout());

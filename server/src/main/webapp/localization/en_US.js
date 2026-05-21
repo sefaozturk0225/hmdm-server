@@ -424,6 +424,7 @@ document.localization ['en_US'] = {
     'form.configuration.settings.minutes.5' : '5 minutes',
     'form.configuration.settings.minutes.10' : '10 minutes',
     'form.configuration.settings.minutes.15' : '15 minutes',
+    'form.configuration.settings.hour.1' : '1 hour',
     'form.configuration.settings.password.mode' : 'Password requirements',
     'form.configuration.settings.password.mode.any' : 'None',
     'form.configuration.settings.password.mode.present' : 'Password presents',
@@ -1125,5 +1126,10 @@ document.localization ['en_US'] = {
     'toggle.on': 'ON',
     'toggle.off': 'OFF',
     'yes': 'yes',
-    'no': 'no'
+    'no': 'no',
+
+    'privacy.notice': 'This system manages application access only. Your personal data is not accessed.',
+
+    'form.configuration.settings.passive.mode': 'Passive sync mode (sync on start only)',
+    'form.configuration.settings.passive.mode.hint': 'Device syncs configuration only when the app starts, no periodic background sync'
 };

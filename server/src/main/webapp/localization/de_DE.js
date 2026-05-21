@@ -424,6 +424,7 @@ document.localization ['de_DE'] = {
     'form.configuration.settings.minutes.5' : '5 Minuten',
     'form.configuration.settings.minutes.10' : '10 Minuten',
     'form.configuration.settings.minutes.15' : '15 Minuten',
+    'form.configuration.settings.hour.1' : '1 Stunde',
     'form.configuration.settings.password.mode': 'Passwortanforderungen',
     'form.configuration.settings.password.mode.any': 'Beliebig',
     'form.configuration.settings.password.mode.present': 'Passwort präsentiert',
@@ -1126,5 +1127,10 @@ document.localization ['de_DE'] = {
     'toggle.on': 'EIN',
     'toggle.off': 'AUS',
     'yes': 'Ja',
-    'no': 'Nein'
+    'no': 'Nein',
+
+    'privacy.notice': 'Dieses System verwaltet nur den Anwendungszugriff. Auf Ihre persönlichen Daten wird nicht zugegriffen.',
+
+    'form.configuration.settings.passive.mode': 'Passiver Synchronisationsmodus (nur beim Start)',
+    'form.configuration.settings.passive.mode.hint': 'Das Gerät synchronisiert die Konfiguration nur beim App-Start, keine regelmäßige Hintergrundsynchronisation'
 };

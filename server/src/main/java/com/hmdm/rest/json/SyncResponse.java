@@ -26,6 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hmdm.persistence.domain.*;
 import io.swagger.annotations.ApiModel;
@@ -149,9 +150,11 @@ public class SyncResponse implements Serializable, SyncResponseInt {
     private String password;
 
     @ApiModelProperty("An IMEI of device")
+    @JsonIgnore
     private String imei;
 
     @ApiModelProperty("A phone number of device")
+    @JsonIgnore
     private String phone;
 
     @ApiModelProperty("A displayed title of the MDM application used on device")
@@ -281,6 +284,10 @@ public class SyncResponse implements Serializable, SyncResponseInt {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String description;
+
+    @ApiModelProperty("When true, device syncs only on app start (no periodic background sync)")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean passiveMode;
 
     public SyncResponse() {
     }
@@ -941,5 +948,13 @@ public class SyncResponse implements Serializable, SyncResponseInt {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getPassiveMode() {
+        return passiveMode;
+    }
+
+    public void setPassiveMode(Boolean passiveMode) {
+        this.passiveMode = passiveMode;
     }
 }

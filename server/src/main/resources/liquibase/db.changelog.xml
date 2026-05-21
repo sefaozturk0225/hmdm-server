@@ -2650,4 +2650,15 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="19.05.26-12:00" author="ttk" context="common">
+        <comment>Column,new: configurations#passiveMode (device syncs only on app start when true)</comment>
+        <sql>
+            ALTER TABLE configurations
+            ADD COLUMN passiveMode BOOLEAN DEFAULT false;
+        </sql>
+        <rollback>
+            ALTER TABLE configurations DROP COLUMN passiveMode;
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>
