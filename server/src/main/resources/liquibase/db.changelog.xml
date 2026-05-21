@@ -2650,6 +2650,24 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="19.05.26-11:30" author="ttk" context="common">
+        <comment>Disable devicelog plugin by default for all existing customers and master account</comment>
+        <sql>
+            INSERT INTO pluginsDisabled (customerId, pluginId)
+            SELECT c.id, p.id FROM customers c
+            CROSS JOIN plugins p
+            WHERE p.identifier = 'devicelog'
+            AND NOT EXISTS (
+                SELECT 1 FROM pluginsDisabled pd WHERE pd.customerId = c.id AND pd.pluginId = p.id
+            );
+        </sql>
+        <rollback>
+            DELETE FROM pluginsDisabled pd
+            USING plugins p
+            WHERE pd.pluginId = p.id AND p.identifier = 'devicelog';
+        </rollback>
+    </changeSet>
+
     <changeSet id="19.05.26-12:00" author="ttk" context="common">
         <comment>Column,new: configurations#passiveMode (device syncs only on app start when true)</comment>
         <sql>
