@@ -23,8 +23,6 @@ package com.hmdm.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.BaseEncoding;
-import com.hmdm.rest.json.Response;
-import com.hmdm.rest.json.SyncResponseInt;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

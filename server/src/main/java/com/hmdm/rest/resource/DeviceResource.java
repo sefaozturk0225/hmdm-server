@@ -237,10 +237,10 @@ public class DeviceResource {
                     }
                 } else if (device.getIds() != null) {
                     // This is a bulk request to update configurations for selected devices
-                    Iterator it = device.getIds().iterator();
+                    Iterator<Integer> it = device.getIds().iterator();
 
                     while (it.hasNext()) {
-                        Integer id = (Integer) it.next();
+                        Integer id = it.next();
                         dbDevice = this.deviceDAO.getDeviceById(id);
                         if (dbDevice != null) {
                             this.deviceDAO.updateDeviceConfiguration(id, device.getConfigurationId());
@@ -311,10 +311,10 @@ public class DeviceResource {
 
         if (device.getIds() != null) {
             // Device IDs are transferred in the "ids" parameter
-            Iterator it = device.getIds().iterator();
+            Iterator<Integer> it = device.getIds().iterator();
 
             while (it.hasNext()) {
-                Integer id = (Integer) it.next();
+                Integer id = it.next();
                 this.deviceDAO.removeDeviceById(id);
             }
         }
@@ -340,10 +340,10 @@ public class DeviceResource {
 
         if (request.getIds() != null) {
             // Device IDs are transferred in the "ids" parameter
-            Iterator it = request.getIds().iterator();
+            Iterator<Integer> it = request.getIds().iterator();
 
             while (it.hasNext()) {
-                Integer id = (Integer) it.next();
+                Integer id = it.next();
                 Device device = deviceDAO.getDeviceById(id);
                 if (device == null) {
                     // Not found

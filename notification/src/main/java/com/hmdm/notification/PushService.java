@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.hmdm.notification.persistence.domain.PushMessage;
-import com.hmdm.notification.persistence.mapper.NotificationMapper;
 import com.hmdm.persistence.ConfigurationDAO;
 import com.hmdm.persistence.DeviceDAO;
 import com.hmdm.persistence.domain.Configuration;

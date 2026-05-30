@@ -3,7 +3,6 @@ package com.hmdm.task;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.UploadedFileDAO;
 import com.hmdm.persistence.domain.Configuration;
 import com.hmdm.persistence.domain.ConfigurationFile;
 import com.hmdm.persistence.domain.Customer;

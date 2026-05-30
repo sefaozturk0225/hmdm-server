@@ -24,17 +24,13 @@ package com.hmdm.plugins.push.guice.module;
 import com.google.inject.Inject;
 import com.hmdm.notification.PushService;
 import com.hmdm.notification.persistence.domain.PushMessage;
-import com.hmdm.persistence.DeviceDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Device;
-import com.hmdm.persistence.domain.DeviceSearchRequest;
 import com.hmdm.plugin.PluginTaskModule;
 import com.hmdm.plugins.push.persistence.PushDAO;
 import com.hmdm.plugins.push.persistence.PushScheduleDAO;
 import com.hmdm.plugins.push.persistence.domain.PluginPushMessage;
 import com.hmdm.plugins.push.persistence.domain.PluginPushSchedule;
-import com.hmdm.rest.json.Response;
-import com.hmdm.security.SecurityContext;
 import com.hmdm.util.BackgroundTaskRunnerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -101,7 +97,6 @@ public class PushScheduleTaskModule implements PluginTaskModule {
     public void init() {
         taskRunner.submitRepeatableTask(this::sendScheduledMessages, 1, 1, TimeUnit.MINUTES);
     }
-
 
     /**
      * <p>Retrieves scheduled messages from the database and sends them.</p>

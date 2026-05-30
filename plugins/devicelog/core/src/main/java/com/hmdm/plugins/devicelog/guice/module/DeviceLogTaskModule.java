@@ -25,7 +25,6 @@ import com.google.inject.Inject;
 import com.hmdm.event.EventService;
 import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.domain.Customer;
 import com.hmdm.plugin.PluginTaskModule;
 import com.hmdm.plugins.devicelog.persistence.CustomerCreatedEventListener;
 import com.hmdm.plugins.devicelog.persistence.DeviceLogPluginSettingsDAO;

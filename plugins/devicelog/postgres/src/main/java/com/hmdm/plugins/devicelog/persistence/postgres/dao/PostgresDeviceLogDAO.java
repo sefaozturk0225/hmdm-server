@@ -24,7 +24,6 @@ package com.hmdm.plugins.devicelog.persistence.postgres.dao;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.hmdm.persistence.AbstractDAO;
-import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.Device;
@@ -219,7 +218,6 @@ public class PostgresDeviceLogDAO extends AbstractDAO<PostgresDeviceLogRecord> i
 
                     resultingRules = combineDeviceLogRules(resultingRules, deviceRules);
 
-
                     final List<AppliedDeviceLogRule> result
                             = resultingRules.stream().map(AppliedDeviceLogRule::new).collect(Collectors.toList());
 
@@ -250,7 +248,6 @@ public class PostgresDeviceLogDAO extends AbstractDAO<PostgresDeviceLogRecord> i
             logger.error("Unexpected error when purging the device log records", e);
         }
     }
-
 
     /**
      * <p>Prepares the filter for usage by mapper.</p>

@@ -24,7 +24,6 @@ package com.hmdm.rest.resource;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import com.hmdm.persistence.UserDAO;
-import com.hmdm.persistence.domain.Application;
 import com.hmdm.rest.json.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,7 +31,6 @@ import io.swagger.annotations.Authorization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

@@ -26,9 +26,6 @@ import com.hmdm.event.EventService;
 import com.hmdm.plugin.PluginTaskModule;
 import com.hmdm.plugin.persistence.CustomerCreatedEventListener;
 import com.hmdm.plugin.persistence.PluginDAO;
-import com.hmdm.util.BackgroundTaskRunnerService;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>A module used for initializing the tasks to be executed in background.</p>

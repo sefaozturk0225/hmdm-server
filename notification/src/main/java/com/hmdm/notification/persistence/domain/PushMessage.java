@@ -21,7 +21,6 @@
 
 package com.hmdm.notification.persistence.domain;
 
-import com.hmdm.persistence.domain.CustomerData;
 import com.hmdm.util.StringUtil;
 
 import java.io.Serializable;

@@ -23,7 +23,6 @@ package com.hmdm.rest.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hmdm.persistence.domain.ApplicationSetting;
-import com.hmdm.persistence.domain.ApplicationSettingType;
 import com.hmdm.persistence.domain.Device;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

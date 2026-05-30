@@ -27,10 +27,7 @@ import com.hmdm.security.SecurityContext;
 import com.hmdm.security.SecurityException;
 import org.apache.ibatis.cursor.Cursor;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;

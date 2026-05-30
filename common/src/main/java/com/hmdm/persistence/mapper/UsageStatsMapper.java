@@ -21,12 +21,8 @@
 
 package com.hmdm.persistence.mapper;
 
-import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.UsageStats;
-import com.hmdm.rest.json.CustomerSearchRequest;
 import org.apache.ibatis.annotations.*;
-
-import java.util.List;
 
 /**
  * <p>An ORM mapper for {@link UsageStats} domain object.</p>

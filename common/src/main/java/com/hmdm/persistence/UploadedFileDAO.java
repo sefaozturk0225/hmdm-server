@@ -24,7 +24,6 @@ package com.hmdm.persistence;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.hmdm.persistence.domain.ConfigurationFile;
-import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.UploadedFile;
 import com.hmdm.persistence.mapper.ConfigurationFileMapper;
 import com.hmdm.persistence.mapper.UploadedFileMapper;
@@ -36,9 +35,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Named;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -85,7 +81,6 @@ public class UploadedFileDAO extends AbstractDAO<UploadedFile> {
         insertRecord(file, this.fileMapper::insert);
         return getSingleRecord(() -> this.fileMapper.findById(file.getId()), SecurityException::onUploadedFileAccessViolation);
     }
-
 
     public List<UploadedFile> getAll() {
         return getListWithCurrentUser(currentUser -> this.fileMapper.getAll(currentUser.getCustomerId()));

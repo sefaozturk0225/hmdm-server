@@ -42,7 +42,6 @@ import com.hmdm.persistence.domain.*;
 import com.hmdm.rest.json.*;
 import com.hmdm.security.SecurityContext;
 import com.hmdm.security.SecurityException;
-import com.hmdm.util.FileUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -54,7 +53,6 @@ import com.hmdm.util.FileExistsException;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 

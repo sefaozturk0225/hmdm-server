@@ -22,23 +22,12 @@
 package com.hmdm.plugins.devicelog.persistence;
 
 import com.hmdm.event.CustomerCreatedEvent;
-import com.hmdm.event.DeviceLocationUpdatedEvent;
 import com.hmdm.event.EventListener;
 import com.hmdm.event.EventType;
-import com.hmdm.persistence.ApplicationDAO;
 import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.domain.Application;
-import com.hmdm.persistence.domain.Customer;
 import com.hmdm.plugins.devicelog.model.DeviceLogPluginSettings;
 import com.hmdm.plugins.devicelog.model.DeviceLogRule;
-import com.hmdm.plugins.devicelog.model.LogLevel;
-import com.hmdm.rest.json.DeviceLocation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * <p>A listener for the events of {@link CustomerCreatedEvent} type. This listener is responsible for saving the

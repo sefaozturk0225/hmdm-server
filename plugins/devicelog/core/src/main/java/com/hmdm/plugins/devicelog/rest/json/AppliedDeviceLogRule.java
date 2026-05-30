@@ -23,7 +23,6 @@ package com.hmdm.plugins.devicelog.rest.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hmdm.plugins.devicelog.model.DeviceLogRule;
-import com.hmdm.plugins.devicelog.model.LogLevel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

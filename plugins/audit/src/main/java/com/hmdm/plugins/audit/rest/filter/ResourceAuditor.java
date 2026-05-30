@@ -24,7 +24,6 @@ package com.hmdm.plugins.audit.rest.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hmdm.persistence.domain.User;
 import com.hmdm.plugins.audit.persistence.domain.AuditLogRecord;
-import com.hmdm.plugins.audit.rest.AuditResource;
 import com.hmdm.rest.filter.BaseIPFilter;
 import com.hmdm.rest.json.Response;
 import org.json.JSONException;
@@ -40,7 +39,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Enumeration;
 
 /**
  * <p>An auditor for a single request-response chain.</p>

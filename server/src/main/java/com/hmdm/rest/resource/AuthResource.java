@@ -22,7 +22,6 @@
 package com.hmdm.rest.resource;
 
 import com.hmdm.auth.HmdmAuthInterface;
-import com.hmdm.persistence.CommonDAO;
 import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Settings;
@@ -187,7 +186,6 @@ public class AuthResource {
             session.invalidate();
         }
     }
-
 
     /**
      * <p>Returns the login options</p>

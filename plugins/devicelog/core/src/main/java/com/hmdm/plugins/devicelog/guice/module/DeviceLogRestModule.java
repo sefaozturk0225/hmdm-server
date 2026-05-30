@@ -21,7 +21,6 @@
 
 package com.hmdm.plugins.devicelog.guice.module;
 
-import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.hmdm.plugin.rest.PluginAccessFilter;
 import com.hmdm.plugins.devicelog.rest.resource.DeviceLogPluginSettingsResource;

@@ -29,11 +29,8 @@ import com.hmdm.event.EventService;
 import com.hmdm.persistence.domain.*;
 import com.hmdm.persistence.mapper.*;
 import com.hmdm.rest.json.DeviceCreateOptions;
-import com.hmdm.rest.json.DeviceListHook;
 import com.hmdm.rest.json.LookupItem;
-import com.hmdm.rest.json.PaginatedData;
 import com.hmdm.security.SecurityContext;
-import com.hmdm.security.SecurityException;
 import com.hmdm.util.CryptoUtil;
 import com.hmdm.util.PasswordUtil;
 import org.mybatis.guice.transactional.Transactional;
@@ -284,13 +281,11 @@ public class UnsecureDAO {
         return app;
     }
 
-
     public Configuration getConfigurationByQRCodeKey(String id) {
         return this.configurationMapper.getConfigurationByQRCodeKey(id);
     }
 
     private static final Function<ApplicationSetting, String> appSettingMapKeyGenerator = (s) -> s.getApplicationPkg() + "," + s.getName();
-
 
     @Transactional
     public void saveDeviceApplicationSettings(Device dbDevice,
@@ -549,7 +544,6 @@ public class UnsecureDAO {
         }
         return apps.get(0);
     }
-
 
     public Device createNewDeviceOnDemand(String deviceId) {
 

@@ -28,7 +28,6 @@ import javax.inject.Named;
 import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.domain.*;
 import com.hmdm.rest.json.Response;
-import com.hmdm.security.SecurityContext;
 import com.hmdm.util.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -56,7 +55,6 @@ import javax.ws.rs.core.StreamingOutput;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -351,7 +349,6 @@ public class QRCodeResource {
             deviceIdEntry = "\"com.hmdm.DEVICE_ID\":\"" + deviceID + "\",";
         }
 
-
         String configurationEntry = "";
         String customerEntry = "";
         if (createOnDemand != null && createOnDemand.equals("1")) {
@@ -382,7 +379,6 @@ public class QRCodeResource {
         if (useId != null) {
             useIdEntry = "\"com.hmdm.DEVICE_ID_USE\":\"" + StringUtil.jsonEscape(useId) + "\",\n";
         }
-
 
         String bundle = "{" +
                 deviceIdEntry +

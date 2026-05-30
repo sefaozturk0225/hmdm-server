@@ -21,7 +21,6 @@
 
 package com.hmdm.rest.json;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hmdm.persistence.domain.CustomerData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -143,7 +142,6 @@ public class ApplicationVersionConfigurationLink implements CustomerData {
     public void setAction(int action) {
         this.action = action;
     }
-
 
     public boolean isRemove() {
         return remove;

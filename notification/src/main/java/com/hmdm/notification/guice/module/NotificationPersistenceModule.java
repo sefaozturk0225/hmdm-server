@@ -24,9 +24,6 @@ package com.hmdm.notification.guice.module;
 import com.hmdm.guice.module.AbstractPersistenceModule;
 
 import javax.servlet.ServletContext;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>A module used for configuring the {@link org.apache.ibatis.session.SqlSessionFactory} to be used by the

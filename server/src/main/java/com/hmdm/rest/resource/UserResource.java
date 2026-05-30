@@ -26,7 +26,6 @@ import javax.inject.Singleton;
 
 import com.hmdm.persistence.CommonDAO;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.Settings;
 import com.hmdm.util.PasswordUtil;
 import io.swagger.annotations.Api;
@@ -55,7 +54,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -291,7 +289,6 @@ public class UserResource {
         }).orElse(Response.PERMISSION_DENIED());
     }
 
-
     // =================================================================================================================
     @ApiOperation(
             value = "Update user's details",
@@ -441,6 +438,5 @@ public class UserResource {
         logger.info("Password for {} is updated", user.getLogin());
         return Response.OK("success.operation.completed", dbUser);
     }
-
 
 }

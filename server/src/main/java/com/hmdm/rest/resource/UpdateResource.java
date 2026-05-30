@@ -22,13 +22,10 @@
 package com.hmdm.rest.resource;
 
 import com.google.common.io.Files;
-import com.hmdm.notification.PushService;
 import com.hmdm.persistence.ApplicationDAO;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.UserDAO;
 import com.hmdm.persistence.domain.Application;
 import com.hmdm.persistence.domain.ApplicationVersion;
-import com.hmdm.persistence.domain.User;
 import com.hmdm.rest.json.*;
 import com.hmdm.security.SecurityContext;
 import com.hmdm.util.*;

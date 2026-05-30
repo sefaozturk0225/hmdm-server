@@ -22,10 +22,8 @@
 package com.hmdm.event;
 
 import com.hmdm.persistence.domain.Customer;
-import com.hmdm.rest.json.DeviceLocation;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * <p>$</p>

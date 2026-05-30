@@ -2,7 +2,6 @@ package com.hmdm.notification;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 import com.hmdm.notification.persistence.NotificationDAO;
 import com.hmdm.notification.persistence.domain.PushMessage;
 

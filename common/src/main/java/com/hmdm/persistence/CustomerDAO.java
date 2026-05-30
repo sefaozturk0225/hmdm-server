@@ -41,7 +41,6 @@ import com.hmdm.persistence.mapper.ConfigurationMapper;
 import com.hmdm.persistence.mapper.CustomerMapper;
 import com.hmdm.security.SecurityContext;
 import com.hmdm.security.SecurityException;
-import com.hmdm.util.CryptoUtil;
 
 import java.io.File;
 import java.io.IOException;

@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hmdm.persistence.domain.ApplicationType;
 import com.hmdm.persistence.domain.Configuration;
-import com.hmdm.persistence.domain.ConfigurationFile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

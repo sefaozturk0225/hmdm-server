@@ -35,10 +35,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hmdm.notification.rest.NotificationResource;
 import com.hmdm.persistence.ApplicationDAO;
 import com.hmdm.rest.filter.PublicIPFilter;
-import com.hmdm.rest.json.Response;
 import com.hmdm.util.CryptoUtil;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;

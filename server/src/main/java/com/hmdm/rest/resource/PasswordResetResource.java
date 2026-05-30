@@ -23,11 +23,9 @@ package com.hmdm.rest.resource;
 
 import com.hmdm.persistence.CommonDAO;
 import com.hmdm.persistence.UnsecureDAO;
-import com.hmdm.persistence.UserDAO;
 import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.Settings;
 import com.hmdm.persistence.domain.User;
-import com.hmdm.persistence.domain.UserRole;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
 import com.hmdm.service.EmailService;
@@ -35,24 +33,15 @@ import com.hmdm.util.PasswordUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.Authorization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Api(tags = {"Password-Reset"})
 @Singleton

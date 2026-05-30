@@ -2,15 +2,12 @@ package com.hmdm.service;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.hmdm.util.FileUtil;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.inject.Named;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

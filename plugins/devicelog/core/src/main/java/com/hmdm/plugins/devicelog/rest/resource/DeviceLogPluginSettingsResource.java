@@ -25,15 +25,12 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.hmdm.notification.PushService;
-import com.hmdm.persistence.ConfigurationDAO;
 import com.hmdm.persistence.DeviceDAO;
-import com.hmdm.persistence.GroupDAO;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.persistence.domain.DeviceSearchRequest;
 import com.hmdm.plugins.devicelog.model.DeviceLogPluginSettings;
 import com.hmdm.plugins.devicelog.model.DeviceLogRule;
 import com.hmdm.plugins.devicelog.persistence.DeviceLogPluginSettingsDAO;
-import com.hmdm.plugins.devicelog.rest.json.DeviceLogFilter;
 import com.hmdm.rest.json.LookupItem;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
@@ -49,16 +46,12 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * <p>A resource to be used for accessing the settings for <code>Photo Plugin</code>.</p>
@@ -245,7 +238,6 @@ public class DeviceLogPluginSettingsResource {
             }
         }
     }
-
 
     // Applicable only to rules which do not contain explicit list of devices!
     private List<Device> getDevicesByRule(DeviceLogRule rule) {

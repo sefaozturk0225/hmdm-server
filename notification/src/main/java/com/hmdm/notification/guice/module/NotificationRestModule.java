@@ -21,7 +21,6 @@
 
 package com.hmdm.notification.guice.module;
 
-import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.hmdm.notification.rest.LongPollingServlet;
 import com.hmdm.notification.rest.NotificationResource;
@@ -33,7 +32,6 @@ import com.hmdm.rest.filter.AuthFilter;
  * @author isv
  */
 public class NotificationRestModule extends ServletModule {
-
 
     /**
      * <p>Constructs new <code>NotificationRestModule</code> instance. This implementation does nothing.</p>

@@ -22,7 +22,6 @@
 package com.hmdm.persistence.mapper;
 
 import com.hmdm.persistence.domain.UploadedFile;
-import com.hmdm.rest.json.FileConfigurationLink;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -46,7 +45,6 @@ public interface UploadedFileMapper {
             "devicePath=#{devicePath}, external=#{external}, externalUrl=#{externalUrl}, replaceVariables=#{replaceVariables} " +
             "WHERE id=#{id}"})
     void update(UploadedFile file);
-
 
     @Select("SELECT * FROM uploadedFiles " +
             "WHERE customerId = #{customerId} " +

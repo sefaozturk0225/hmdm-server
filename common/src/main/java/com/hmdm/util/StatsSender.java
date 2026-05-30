@@ -13,7 +13,6 @@ import java.lang.management.MemoryUsage;
 import java.lang.management.OperatingSystemMXBean;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Base64;
 
 @Singleton
 public class StatsSender {

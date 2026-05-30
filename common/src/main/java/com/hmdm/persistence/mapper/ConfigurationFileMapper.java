@@ -21,9 +21,7 @@
 
 package com.hmdm.persistence.mapper;
 
-import com.hmdm.persistence.domain.Configuration;
 import com.hmdm.persistence.domain.ConfigurationFile;
-import com.hmdm.persistence.domain.UploadedFile;
 import com.hmdm.rest.json.FileConfigurationLink;
 import org.apache.ibatis.annotations.*;
 
@@ -99,7 +97,6 @@ public interface ConfigurationFileMapper {
     List<FileConfigurationLink> getConfigurationFileLinks(@Param("customerId") Integer customerId,
                                                           @Param("userId") Integer userId,
                                                           @Param("id") Integer fileId);
-
 
     @Delete("DELETE FROM configurationFiles WHERE id = #{id}")
     void deleteConfigurationFile(@Param("id") Integer fileId);

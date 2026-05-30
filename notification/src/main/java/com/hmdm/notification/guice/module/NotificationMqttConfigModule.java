@@ -2,9 +2,6 @@ package com.hmdm.notification.guice.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
-import org.apache.activemq.broker.BrokerService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 

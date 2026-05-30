@@ -21,7 +21,6 @@
 
 package com.hmdm.persistence.mapper;
 
-import com.hmdm.persistence.domain.User;
 import com.hmdm.persistence.domain.UserRole;
 import com.hmdm.persistence.domain.UserRolePermission;
 import org.apache.ibatis.annotations.*;

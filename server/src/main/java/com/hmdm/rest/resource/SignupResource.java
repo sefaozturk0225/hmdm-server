@@ -26,11 +26,9 @@ import com.hmdm.persistence.PendingSignupDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Customer;
 import com.hmdm.persistence.domain.PendingSignup;
-import com.hmdm.persistence.domain.Settings;
 import com.hmdm.persistence.domain.User;
 import com.hmdm.rest.json.Response;
 import com.hmdm.rest.json.SignupCompleteRequest;
-import com.hmdm.security.SecurityContext;
 import com.hmdm.service.EmailService;
 import com.hmdm.service.MailchimpService;
 import com.hmdm.util.PasswordUtil;
@@ -137,7 +135,6 @@ public class SignupResource {
         }
     }
 
-
     // =================================================================================================================
     @ApiOperation(
             value = "Verify email",
@@ -179,7 +176,6 @@ public class SignupResource {
         return Response.OK();
     }
 
-
     // =================================================================================================================
     @ApiOperation(
             value = "Verify token",
@@ -195,7 +191,6 @@ public class SignupResource {
         }
         return Response.OK(signup);
     }
-
 
     // =================================================================================================================
     @ApiOperation(

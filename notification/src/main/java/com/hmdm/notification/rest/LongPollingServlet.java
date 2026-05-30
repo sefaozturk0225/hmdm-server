@@ -24,13 +24,10 @@ package com.hmdm.notification.rest;
 import com.hmdm.notification.PushSenderPolling;
 import com.hmdm.notification.persistence.NotificationDAO;
 import com.hmdm.notification.persistence.domain.PushMessage;
-import com.hmdm.notification.rest.json.PlainPushMessage;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.rest.filter.PublicIPFilter;
-import com.hmdm.rest.json.Response;
 import com.hmdm.util.CryptoUtil;
-import com.hmdm.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,17 +42,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.stream.Collectors;
 
 /**
  * <p>A resource to be used for publishing/receiving the notification messages.</p>

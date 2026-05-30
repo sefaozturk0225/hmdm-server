@@ -21,9 +21,7 @@
 
 package com.hmdm.plugins.push.persistence.mapper;
 
-import com.hmdm.plugins.push.persistence.domain.PluginPushMessage;
 import com.hmdm.plugins.push.persistence.domain.PluginPushSchedule;
-import com.hmdm.plugins.push.rest.json.PushMessageFilter;
 import com.hmdm.plugins.push.rest.json.PushScheduleFilter;
 import org.apache.ibatis.annotations.*;
 

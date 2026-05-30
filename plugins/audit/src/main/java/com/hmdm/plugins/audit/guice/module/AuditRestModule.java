@@ -27,7 +27,6 @@ import com.hmdm.plugins.audit.rest.AuditResource;
 import com.hmdm.plugins.audit.rest.filter.AuditFilter;
 import com.hmdm.rest.filter.AuthFilter;
 import com.hmdm.rest.filter.PrivateIPFilter;
-import com.hmdm.rest.filter.PublicIPFilter;
 import com.hmdm.security.jwt.JWTFilter;
 
 /**

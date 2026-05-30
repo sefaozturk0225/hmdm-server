@@ -21,7 +21,6 @@
 
 package com.hmdm.persistence.mapper;
 
-import com.hmdm.persistence.domain.DeviceSearchRequest;
 import com.hmdm.rest.json.CustomerSearchRequest;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;

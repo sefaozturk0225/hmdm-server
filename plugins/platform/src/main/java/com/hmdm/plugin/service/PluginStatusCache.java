@@ -23,7 +23,6 @@ package com.hmdm.plugin.service;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.hmdm.persistence.domain.User;
 import com.hmdm.plugin.PluginList;
 import com.hmdm.plugin.persistence.domain.DisabledPlugin;
 import com.hmdm.plugin.persistence.domain.Plugin;
@@ -33,7 +32,6 @@ import com.hmdm.security.SecurityContext;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -106,7 +104,6 @@ public class PluginStatusCache {
         } else {
             // TODO : Need to check the potential anonymous calls from devices to plugin endpoints by getting the device number from request and mapping it to customer
         }
-
 
         return false;
     }

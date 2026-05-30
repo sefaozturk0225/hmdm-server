@@ -23,10 +23,8 @@ package com.hmdm.service;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.hmdm.event.EventService;
 import com.hmdm.persistence.domain.Customer;
 import com.hmdm.util.StringUtil;
-import liquibase.util.FileUtil;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,7 +113,6 @@ public class EmailService {
         return !smtpHost.equals("");
     }
 
-
     public boolean sendEmail(String to, String subj, String body) {
         return sendEmail(to, subj, body, null);
     }
@@ -198,7 +195,6 @@ public class EmailService {
     public String getSignupCompleteEmailSubj(String language) {
         return getLocalizedText(signupCompleteEmailSubj, language);
     }
-
 
     public String getSignupCompleteEmailBody(Customer customer) {
         String deviceIds = customer.getPrefix() + "001, " +

@@ -26,7 +26,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>A DTO carrying the parameters for filtering the lists of scheduled Push objects.</p>
@@ -37,7 +36,6 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PushScheduleFilter implements Serializable {
     private static final long serialVersionUID = 5138659302284486486L;
-
 
     /**
      * <p>A number of records per single page of data to be retrieved.</p>

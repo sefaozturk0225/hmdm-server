@@ -24,7 +24,6 @@ package com.hmdm.rest.json;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * <p>Customer details sent when the registration is completed.</p>

@@ -23,12 +23,10 @@ package com.hmdm.rest.json;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.hmdm.persistence.domain.Application;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

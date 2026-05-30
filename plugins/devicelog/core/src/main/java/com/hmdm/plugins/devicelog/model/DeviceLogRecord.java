@@ -26,7 +26,6 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @ApiModel(description = "A single log record received from device")
 @JsonIgnoreProperties(ignoreUnknown = true)

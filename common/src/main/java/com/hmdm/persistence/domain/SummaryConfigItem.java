@@ -22,8 +22,6 @@
 package com.hmdm.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.hmdm.service.DeviceApplicationsStatus;
-import com.hmdm.service.DeviceConfigFilesStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

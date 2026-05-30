@@ -21,14 +21,10 @@
 
 package com.hmdm.rest.resource;
 
-import com.hmdm.persistence.GroupDAO;
-import com.hmdm.persistence.UserDAO;
 import com.hmdm.persistence.UserRoleDAO;
-import com.hmdm.persistence.domain.Group;
 import com.hmdm.persistence.domain.User;
 import com.hmdm.persistence.domain.UserRole;
 import com.hmdm.persistence.domain.UserRolePermission;
-import com.hmdm.rest.json.LookupItem;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
 import io.swagger.annotations.Api;
@@ -43,7 +39,6 @@ import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Api(tags = {"UserRole"}, authorizations = {@Authorization("Bearer Token")})
 @Singleton

@@ -22,7 +22,6 @@
 package com.hmdm.persistence.mapper;
 
 import com.hmdm.persistence.domain.PendingSignup;
-import com.hmdm.persistence.domain.UsageStats;
 import org.apache.ibatis.annotations.*;
 
 /**

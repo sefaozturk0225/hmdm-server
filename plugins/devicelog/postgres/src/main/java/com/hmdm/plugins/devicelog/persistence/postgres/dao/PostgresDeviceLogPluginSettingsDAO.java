@@ -38,7 +38,6 @@ import org.mybatis.guice.transactional.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -127,7 +126,6 @@ public class PostgresDeviceLogPluginSettingsDAO extends AbstractDAO<PostgresDevi
             } else {
                 this.mapper.updatePluginSettingsRule(postgresRule);
             }
-
 
             this.mapper.deletePluginSettingsRuleDevices(postgresRule.getId());
             if (postgresRule.getDevices() != null && !postgresRule.getDevices().isEmpty()) {

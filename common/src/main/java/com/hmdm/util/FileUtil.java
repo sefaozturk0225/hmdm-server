@@ -21,7 +21,6 @@
 
 package com.hmdm.util;
 
-import com.hmdm.persistence.domain.Application;
 import com.hmdm.persistence.domain.Customer;
 
 import java.io.*;

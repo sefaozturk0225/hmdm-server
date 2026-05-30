@@ -21,7 +21,6 @@
 
 package com.hmdm.plugin.guice.module;
 
-import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.hmdm.plugin.rest.PluginResource;
 import com.hmdm.rest.filter.AuthFilter;

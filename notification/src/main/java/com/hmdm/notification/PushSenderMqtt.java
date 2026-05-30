@@ -8,18 +8,12 @@ import com.hmdm.notification.persistence.domain.PushMessage;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.util.BackgroundTaskRunnerService;
-import com.hmdm.util.CryptoUtil;
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-import org.fusesource.mqtt.client.MQTTException;
 
 import javax.jms.*;
-import java.util.HashMap;
-import java.util.Map;
 
 @Singleton
 public class PushSenderMqtt implements PushSender {

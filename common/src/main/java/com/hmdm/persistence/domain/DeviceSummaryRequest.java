@@ -28,7 +28,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @ApiModel(description = "A request for getting the device summary")

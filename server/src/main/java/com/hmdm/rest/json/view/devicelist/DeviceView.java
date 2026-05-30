@@ -24,7 +24,6 @@ package com.hmdm.rest.json.view.devicelist;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hmdm.persistence.domain.Configuration;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.rest.json.DeviceInfo;
 import com.hmdm.rest.json.LookupItem;

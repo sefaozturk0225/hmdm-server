@@ -24,21 +24,16 @@ package com.hmdm.plugins.push.persistence;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.hmdm.persistence.AbstractDAO;
-import com.hmdm.plugins.push.persistence.domain.PluginPushMessage;
 import com.hmdm.plugins.push.persistence.domain.PluginPushSchedule;
-import com.hmdm.plugins.push.persistence.mapper.PushMessageMapper;
 import com.hmdm.plugins.push.persistence.mapper.PushScheduleMapper;
-import com.hmdm.plugins.push.rest.json.PushMessageFilter;
 import com.hmdm.plugins.push.rest.json.PushScheduleFilter;
 import com.hmdm.security.SecurityContext;
-import org.apache.ibatis.annotations.Param;
 import org.mybatis.guice.transactional.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -63,7 +58,6 @@ public class PushScheduleDAO extends AbstractDAO<PluginPushSchedule> {
     public PushScheduleDAO(PushScheduleMapper pushScheduleMapper) {
         this.pushScheduleMapper = pushScheduleMapper;
     }
-
 
     /**
      * <p>Finds the scheduled messages matching the specified filter.</p>

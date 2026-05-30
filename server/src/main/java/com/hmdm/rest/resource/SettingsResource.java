@@ -31,7 +31,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.hmdm.persistence.CustomerDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.UserRoleSettingsDAO;
 import com.hmdm.persistence.domain.UserRoleSettings;
