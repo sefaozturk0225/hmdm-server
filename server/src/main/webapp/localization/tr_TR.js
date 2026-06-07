@@ -1128,5 +1128,19 @@ document.localization ['tr_TR'] = {
     'privacy.notice': 'Bu sistem yalnızca uygulama erişimini yönetir. Kişisel verilerinize erişilmemektedir.',
 
     'form.configuration.settings.passive.mode': 'Pasif senkronizasyon modu (yalnızca başlangıçta)',
-    'form.configuration.settings.passive.mode.hint': 'Cihaz yapılandırmayı yalnızca uygulama başladığında senkronize eder, arka planda periyodik senkronizasyon yapılmaz'
+    'form.configuration.settings.passive.mode.hint': 'Cihaz yapılandırmayı yalnızca uygulama başladığında senkronize eder, arka planda periyodik senkronizasyon yapılmaz',
+
+    'proposal.badge.tooltip': 'Bekleyen uygulama seçim önerisi',
+    'proposal.modal.summary.prefix': 'Cihaz',
+    'proposal.modal.summary.suffix': 'uygulama seçti. Kişiye özel yapılandırma oluşturmak için aşağıdaki bilgileri doldurun.',
+    'proposal.modal.config.name': 'Yapılandırma Adı',
+    'proposal.modal.config.name.placeholder': 'Yeni yapılandırma için ad girin',
+    'proposal.modal.template': 'Şablon (isteğe bağlı)',
+    'proposal.modal.template.none': '— Şablon yok —',
+    'proposal.modal.apps': 'Seçilen Uygulamalar',
+    'proposal.modal.apps.empty': 'Seçilen uygulama yok',
+    'proposal.modal.button.create': 'Yapılandırma Oluştur',
+    'proposal.modal.button.dismiss': 'Reddet',
+    'proposal.modal.success': '"${name}" yapılandırması oluşturuldu ve cihaza atandı.',
+    'proposal.modal.autocreated': '${count} bilinmeyen paket otomatik olarak kataloga eklendi.'
 };

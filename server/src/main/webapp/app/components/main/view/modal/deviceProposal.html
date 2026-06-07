@@ -1,0 +1,63 @@
+<!-- Localization completed -->
+<div ng-show='errorMessage' class='modal-header'>
+    <div class='error'><span>{{errorMessage}}</span></div>
+</div>
+<div class='modal-body'>
+    <form class='form-horizontal'>
+
+        <div class='form-group'>
+            <div class='col-sm-12'>
+                <strong localized>proposal.modal.summary.prefix</strong>
+                <span> {{allowedCount}} </span>
+                <span localized>proposal.modal.summary.suffix</span>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class='col-sm-4 control-label' localized>proposal.modal.config.name</label>
+            <div class='col-sm-8'>
+                <input ng-model='configName' type='text' class='form-control'
+                       localized-placeholder='proposal.modal.config.name.placeholder'/>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class='col-sm-4 control-label' localized>proposal.modal.template</label>
+            <div class='col-sm-8'>
+                <select class='form-control'
+                        ng-model='templateConfigurationId'
+                        ng-options="cfg.id as cfg.name for cfg in configurations">
+                    <option value="" localized>proposal.modal.template.none</option>
+                </select>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class='col-sm-4 control-label' localized>proposal.modal.apps</label>
+            <div class='col-sm-8'>
+                <div style="max-height:240px; overflow-y:auto; border:1px solid #dce3ec; border-radius:4px; padding:4px 0;">
+                    <table class='table table-striped table-condensed' style="margin-bottom:0;">
+                        <tbody>
+                        <tr ng-repeat="app in proposal.apps | filter:{allowed:true}">
+                            <td style="width:50%">{{app.name || app.pkg}}</td>
+                            <td style="color:#888; font-size:11px;">{{app.pkg}}</td>
+                        </tr>
+                        <tr ng-if="allowedCount === 0">
+                            <td colspan="2" class="text-center" localized>proposal.modal.apps.empty</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <div class='col-sm-offset-4 col-sm-8'>
+                <button type='submit' class='btn btn-primary' ng-click='confirm()' ng-disabled='loading' localized>proposal.modal.button.create</button>
+                <button type='button' class='btn btn-default' ng-click='dismiss()' ng-disabled='loading' localized>proposal.modal.button.dismiss</button>
+                <button type='button' class='btn btn-default' ng-click='closeModal()' ng-disabled='loading' localized>button.cancel</button>
+            </div>
+        </div>
+
+    </form>
+</div>

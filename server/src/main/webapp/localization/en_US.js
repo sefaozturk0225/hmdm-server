@@ -1113,5 +1113,19 @@ document.localization ['en_US'] = {
     'privacy.notice': 'This system manages application access only. Your personal data is not accessed.',
 
     'form.configuration.settings.passive.mode': 'Passive sync mode (sync on start only)',
-    'form.configuration.settings.passive.mode.hint': 'Device syncs configuration only when the app starts, no periodic background sync'
+    'form.configuration.settings.passive.mode.hint': 'Device syncs configuration only when the app starts, no periodic background sync',
+
+    'proposal.badge.tooltip': 'Pending app selection proposal',
+    'proposal.modal.summary.prefix': 'Device selected',
+    'proposal.modal.summary.suffix': 'apps. Fill in the details below to create a personal configuration.',
+    'proposal.modal.config.name': 'Configuration Name',
+    'proposal.modal.config.name.placeholder': 'Enter a name for the new configuration',
+    'proposal.modal.template': 'Template (optional)',
+    'proposal.modal.template.none': '— No template —',
+    'proposal.modal.apps': 'Selected Apps',
+    'proposal.modal.apps.empty': 'No apps selected',
+    'proposal.modal.button.create': 'Create Configuration',
+    'proposal.modal.button.dismiss': 'Dismiss',
+    'proposal.modal.success': 'Configuration "${name}" created and assigned to device.',
+    'proposal.modal.autocreated': '${count} unknown package(s) were auto-registered in the catalog.'
 };

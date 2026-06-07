@@ -2679,4 +2679,23 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="26.06.07-12:00" author="bzkyapi" context="common">
+        <comment>Table,new: device_app_proposal — stores per-device app selection proposals from launcher</comment>
+        <sql>
+            CREATE TABLE device_app_proposal (
+                id                    SERIAL        NOT NULL PRIMARY KEY,
+                deviceId              INTEGER       NOT NULL REFERENCES devices(id),
+                customerId            INTEGER       NOT NULL,
+                proposalJson          TEXT,
+                status                VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
+                createdAt             BIGINT,
+                appliedConfigurationId INTEGER      REFERENCES configurations(id)
+            );
+            CREATE UNIQUE INDEX idx_dap_device ON device_app_proposal(deviceId);
+        </sql>
+        <rollback>
+            DROP TABLE IF EXISTS device_app_proposal;
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

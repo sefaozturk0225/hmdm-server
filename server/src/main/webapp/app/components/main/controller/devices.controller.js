@@ -3,7 +3,7 @@ angular.module('headwind-kiosk')
     .controller('DevicesTabController', function ($scope, $rootScope, $state, $modal, $interval, $cookies, $window, $filter, $timeout,
                                                   confirmModal, deviceService, groupService, settingsService, hintService,
                                                   authService, pluginService, configurationService, alertService,
-                                                  spinnerService, localization, utils) {
+                                                  spinnerService, localization, utils, proposalService) {
 
         var saveDeviceSearchParams = function() {
             var expireDate = new Date();
@@ -385,6 +385,10 @@ angular.module('headwind-kiosk')
                     $scope.devices = response.data.devices.items;
                     for (var i = 0; i < $scope.devices.length; i++) {
                         $scope.devices[i].lastUpdateDate = new Date($scope.devices[i].lastUpdate);
+                    }
+
+                    if (authService.hasPermission('configurations')) {
+                        loadProposalBadges($scope.devices);
                     }
 
                     $scope.paging.totalItems = response.data.devices.totalItemsCount;
@@ -945,6 +949,39 @@ angular.module('headwind-kiosk')
             });
         };
 
+        var loadProposalBadges = function (devices) {
+            if (!devices || devices.length === 0) return;
+            proposalService.getPendingProposals({}, function (response) {
+                if (response.status === 'OK' && response.data) {
+                    var pendingMap = response.data;
+                    devices.forEach(function (device) {
+                        var count = pendingMap[device.id];
+                        if (count != null && count > 0) {
+                            device.pendingProposal = {count: count};
+                        }
+                    });
+                }
+            });
+        };
+
+        $scope.openProposalModal = function (device) {
+            var modalInstance = $modal.open({
+                templateUrl: 'app/components/main/view/modal/deviceProposal.html',
+                controller: 'DeviceProposalModalController',
+                size: 'lg',
+                resolve: {
+                    device: function () { return device; },
+                    proposal: function () { return device.pendingProposal; }
+                }
+            });
+            modalInstance.result.then(function (result) {
+                device.pendingProposal = null;
+                if (result === 'created') {
+                    $scope.search();
+                }
+            });
+        };
+
         $scope.editDevice = function (device) {
             var modalInstance = $modal.open({
                 templateUrl: 'app/components/main/view/modal/device.html',
@@ -1201,6 +1238,82 @@ angular.module('headwind-kiosk')
                 $scope.groups = response.data;
             });
         })
+    .controller('DeviceProposalModalController', function ($scope, $modalInstance,
+                                                           proposalService, configurationService,
+                                                           localization, alertService,
+                                                           device, proposal) {
+        $scope.device = device;
+        $scope.proposal = proposal;
+        $scope.loading = false;
+        $scope.errorMessage = undefined;
+
+        var defaultName = (device.description && device.description.trim())
+            ? device.description.trim() : device.number;
+        $scope.configName = defaultName;
+        $scope.templateConfigurationId = null;
+        $scope.configurations = [];
+
+        var allowedCount = (proposal.apps || []).filter(function (a) { return a.allowed; }).length;
+        $scope.allowedCount = allowedCount;
+
+        configurationService.getAllConfigNames(function (response) {
+            if (response.data) {
+                $scope.configurations = response.data;
+            }
+        });
+
+        $scope.confirm = function () {
+            $scope.errorMessage = undefined;
+            if (!$scope.configName || !$scope.configName.trim()) {
+                $scope.errorMessage = localization.localize('error.empty.configuration.name');
+                return;
+            }
+            $scope.loading = true;
+            var req = {
+                deviceId: device.id,
+                configName: $scope.configName.trim(),
+                templateConfigurationId: $scope.templateConfigurationId || null
+            };
+            proposalService.fromProposal({}, req, function (response) {
+                $scope.loading = false;
+                if (response.status === 'OK') {
+                    var created = (response.data && response.data.autoCreatedPackages) || [];
+                    var msg = localization.localize('proposal.modal.success')
+                        .replace('${name}', response.data.configurationName);
+                    if (created.length > 0) {
+                        msg += ' ' + localization.localize('proposal.modal.autocreated')
+                            .replace('${count}', created.length);
+                    }
+                    alertService.showAlertMessage(msg);
+                    $modalInstance.close('created');
+                } else {
+                    $scope.errorMessage = localization.localizeServerResponse(response);
+                }
+            }, function () {
+                $scope.loading = false;
+                $scope.errorMessage = localization.localize('error.request.failure');
+            });
+        };
+
+        $scope.dismiss = function () {
+            $scope.loading = true;
+            proposalService.dismissProposal({deviceId: device.id}, {}, function (response) {
+                $scope.loading = false;
+                if (response.status === 'OK') {
+                    $modalInstance.close('dismissed');
+                } else {
+                    $scope.errorMessage = localization.localizeServerResponse(response);
+                }
+            }, function () {
+                $scope.loading = false;
+                $scope.errorMessage = localization.localize('error.request.failure');
+            });
+        };
+
+        $scope.closeModal = function () {
+            $modalInstance.dismiss();
+        };
+    })
     .controller('DeviceApplicationSettingsModalController', function ($scope, $modal, $modalInstance,
                                                                       localization, deviceService,
                                                                       applicationService, alertService,

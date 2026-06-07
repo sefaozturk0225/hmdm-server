@@ -436,6 +436,13 @@
             </td>
 
             <td class="deviceActions">
+                <button type='button' class='btn btn-warning proposal-badge-btn'
+                        ng-if="device.pendingProposal && hasPermission('configurations')"
+                        ng-click='openProposalModal(device)'
+                        localized-title="proposal.badge.tooltip">
+                    <span class='glyphicon glyphicon-list-alt'></span>
+                    <span class='badge'>{{device.pendingProposal.count}}</span>
+                </button>
                 <button type='button' class='btn btn-default' ng-click='editDevice( device )'
                         localized-title="button.change" ng-if="hasPermission('edit_devices') || hasPermission('edit_device_desc')">
                     <span class='glyphicon glyphicon-pencil'></span>

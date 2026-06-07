@@ -1114,5 +1114,19 @@ document.localization ['de_DE'] = {
     'privacy.notice': 'Dieses System verwaltet nur den Anwendungszugriff. Auf Ihre persönlichen Daten wird nicht zugegriffen.',
 
     'form.configuration.settings.passive.mode': 'Passiver Synchronisationsmodus (nur beim Start)',
-    'form.configuration.settings.passive.mode.hint': 'Das Gerät synchronisiert die Konfiguration nur beim App-Start, keine regelmäßige Hintergrundsynchronisation'
+    'form.configuration.settings.passive.mode.hint': 'Das Gerät synchronisiert die Konfiguration nur beim App-Start, keine regelmäßige Hintergrundsynchronisation',
+
+    'proposal.badge.tooltip': 'Ausstehender App-Auswahlvorschlag',
+    'proposal.modal.summary.prefix': 'Gerät hat',
+    'proposal.modal.summary.suffix': 'Apps ausgewählt. Füllen Sie die Details aus, um eine persönliche Konfiguration zu erstellen.',
+    'proposal.modal.config.name': 'Konfigurationsname',
+    'proposal.modal.config.name.placeholder': 'Namen für die neue Konfiguration eingeben',
+    'proposal.modal.template': 'Vorlage (optional)',
+    'proposal.modal.template.none': '— Keine Vorlage —',
+    'proposal.modal.apps': 'Ausgewählte Apps',
+    'proposal.modal.apps.empty': 'Keine Apps ausgewählt',
+    'proposal.modal.button.create': 'Konfiguration erstellen',
+    'proposal.modal.button.dismiss': 'Ablehnen',
+    'proposal.modal.success': 'Konfiguration "${name}" erstellt und dem Gerät zugewiesen.',
+    'proposal.modal.autocreated': '${count} unbekannte Paket(e) wurden automatisch im Katalog registriert.'
 };

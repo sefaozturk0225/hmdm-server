@@ -106,6 +106,14 @@ angular.module('headwind-kiosk')
             disablePlugins: {url: 'rest/plugin/main/private/disabled', method: 'POST'},
         })
     })
+    .factory('proposalService', function ($resource) {
+        return $resource('', {}, {
+            getPendingProposals: {url: 'rest/private/configurations/proposals/pending', method: 'GET'},
+            getProposal:         {url: 'rest/private/configurations/proposal/:deviceId', method: 'GET'},
+            dismissProposal:     {url: 'rest/private/configurations/proposal/:deviceId/dismiss', method: 'POST'},
+            fromProposal:        {url: 'rest/private/configurations/from-proposal', method: 'POST'}
+        });
+    })
     .factory('applicationService', function ($resource) {
         return $resource('', {}, {
             getAllApplications: {url: 'rest/private/applications/search/:value', method: 'GET'},
