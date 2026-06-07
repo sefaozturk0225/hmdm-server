@@ -42,11 +42,11 @@ public class AppProposalResource {
 
     private static final Logger log = LoggerFactory.getLogger(AppProposalResource.class);
 
-    private final ConfigurationDAO     configurationDAO;
-    private final ApplicationDAO       applicationDAO;
-    private final DeviceDAO            deviceDAO;
-    private final DeviceAppProposalDAO proposalDAO;
-    private final ObjectMapper         jsonMapper = new ObjectMapper();
+    private ConfigurationDAO     configurationDAO;
+    private ApplicationDAO       applicationDAO;
+    private DeviceDAO            deviceDAO;
+    private DeviceAppProposalDAO proposalDAO;
+    private final ObjectMapper   jsonMapper = new ObjectMapper();
 
     public AppProposalResource() {}
 
