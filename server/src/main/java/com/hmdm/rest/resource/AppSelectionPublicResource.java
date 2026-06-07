@@ -30,8 +30,8 @@ public class AppSelectionPublicResource {
 
     private static final Logger log = LoggerFactory.getLogger(AppSelectionPublicResource.class);
 
-    private final UnsecureDAO           unsecureDAO;
-    private final DeviceAppProposalDAO  proposalDAO;
+    private UnsecureDAO           unsecureDAO;
+    private DeviceAppProposalDAO  proposalDAO;
 
     public AppSelectionPublicResource() {}
 
