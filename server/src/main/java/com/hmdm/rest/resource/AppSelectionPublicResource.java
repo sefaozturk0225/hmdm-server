@@ -95,7 +95,7 @@ public class AppSelectionPublicResource {
             response = Response.class
     )
     @GET
-    @Path("/{deviceNumber}/status")
+    @Path("/{deviceNumber: [^/]+}/status")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSelectionStatus(
             @PathParam("deviceNumber") @ApiParam("Device number registered in MDM") String deviceNumber) {
