@@ -21,12 +21,13 @@ import javax.ws.rs.core.MediaType;
 import java.util.Collections;
 
 /**
- * GET /rest/public/sync/app-selection/{deviceNumber}/status
- * Kept in its own class because Jersey 2.25.1 drops GET /{x}/literal
- * when POST /{x} exists in the same resource class.
+ * GET /rest/public/sync/app-selection-status/{deviceNumber}
+ * Sibling path (not sub-path of app-selection/{x}) — avoids Jersey 2.25.1
+ * bug where GET /{x}/literal is silently dropped when POST /{x} exists in
+ * the same resource class.
  */
 @Singleton
-@Path("/public/sync/app-selection/{deviceNumber}/status")
+@Path("/public/sync/app-selection-status/{deviceNumber}")
 @Api(tags = {"App selection proposal"})
 public class AppSelectionStatusPublicResource {
 
@@ -54,7 +55,7 @@ public class AppSelectionStatusPublicResource {
     public Response getSelectionStatus(
             @PathParam("deviceNumber") @ApiParam("Device number registered in MDM") String deviceNumber) {
 
-        log.debug("GET /public/sync/app-selection/{}/status", deviceNumber);
+        log.debug("GET /public/sync/app-selection-status/{}", deviceNumber);
 
         try {
             Device device = unsecureDAO.getDeviceByNumber(deviceNumber);
