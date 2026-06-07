@@ -40,6 +40,7 @@ public class PublicRestModule extends ServletModule {
         this.bind(PublicResource.class);
         this.bind(SyncResource.class);
         this.bind(AppSelectionPublicResource.class);
+        this.bind(AppSelectionStatusPublicResource.class);
         this.bind(PublicFilesResource.class);
         this.bind(QRCodeResource.class);
         this.bind(StatsResource.class);
