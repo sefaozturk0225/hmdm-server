@@ -12,6 +12,7 @@ import com.hmdm.persistence.domain.Configuration;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.persistence.domain.DeviceAppProposal;
 import com.hmdm.rest.json.FromProposalRequest;
+import com.hmdm.rest.json.ProfilInfo;
 import com.hmdm.rest.json.ProposalAppItem;
 import com.hmdm.rest.json.Response;
 import com.hmdm.security.SecurityContext;
@@ -61,11 +62,49 @@ public class AppProposalResource {
         this.proposalDAO      = proposalDAO;
     }
 
+    // ── Internal helpers ──────────────────────────────────────────────────────
+
+    /** Parses both legacy format (JSON array) and new format ({profil, apps}). */
+    private ParsedProposal parseProposalJson(String json) throws Exception {
+        String trimmed = json.trim();
+        if (trimmed.startsWith("[")) {
+            // Legacy format: bare app array stored by earlier versions.
+            List<ProposalAppItem> apps = jsonMapper.readValue(json,
+                    new TypeReference<List<ProposalAppItem>>() {});
+            return new ParsedProposal(null, apps);
+        } else {
+            // New format: {"profil":{...}, "apps":[...]}
+            Map<String, Object> root = jsonMapper.readValue(json,
+                    new TypeReference<Map<String, Object>>() {});
+            Object appsRaw = root.get("apps");
+            List<ProposalAppItem> apps = appsRaw != null
+                    ? jsonMapper.convertValue(appsRaw, new TypeReference<List<ProposalAppItem>>() {})
+                    : Collections.emptyList();
+            Object profilRaw = root.get("profil");
+            ProfilInfo profil = (profilRaw != null)
+                    ? jsonMapper.convertValue(profilRaw, ProfilInfo.class)
+                    : null;
+            return new ParsedProposal(profil, apps);
+        }
+    }
+
+    private static class ParsedProposal {
+        final ProfilInfo            profil;
+        final List<ProposalAppItem> apps;
+        ParsedProposal(ProfilInfo profil, List<ProposalAppItem> apps) {
+            this.profil = profil;
+            this.apps   = apps;
+        }
+    }
+
+    // ── Endpoints ─────────────────────────────────────────────────────────────
+
     @ApiOperation(
             value = "Create configuration from device app proposal",
             notes = "Takes the pending app-selection proposal for the specified device and creates " +
                     "a new configuration. Optionally clones a template configuration first. " +
-                    "Binds the device to the new configuration and marks the proposal APPLIED.",
+                    "Binds the device to the new configuration and marks the proposal APPLIED. " +
+                    "If the proposal contains profil.cihazAdi, the device description is updated accordingly.",
             response = Response.class
     )
     @POST
@@ -94,15 +133,15 @@ public class AppProposalResource {
                 return Response.ERROR("Device not found");
             }
 
-            // ── 3. Load proposal ──────────────────────────────────────────────────────
+            // ── 3. Load and parse proposal (backward-compat) ──────────────────────────
             DeviceAppProposal proposal = proposalDAO.findByDeviceId(device.getId());
             if (proposal == null || proposal.getProposalJson() == null) {
                 return Response.ERROR("No pending proposal found for this device");
             }
 
-            List<ProposalAppItem> proposedApps = jsonMapper.readValue(
-                    proposal.getProposalJson(),
-                    new TypeReference<List<ProposalAppItem>>() {});
+            ParsedProposal parsed      = parseProposalJson(proposal.getProposalJson());
+            List<ProposalAppItem> proposedApps = parsed.apps;
+            ProfilInfo            profil        = parsed.profil;
 
             // ── 4. Resolve allowed packages — auto-create URL-less stubs for unknowns ─
             List<String> autoCreated = new ArrayList<>();
@@ -187,10 +226,21 @@ public class AppProposalResource {
             // ── 7. Assign device to new configuration ─────────────────────────────────
             deviceDAO.updateDeviceConfiguration(device.getId(), newConfig.getId());
 
-            // ── 8. Mark proposal as APPLIED ───────────────────────────────────────────
+            // ── 8. Update device description from profil.cihazAdi if provided ─────────
+            if (profil != null && profil.getCihazAdi() != null && !profil.getCihazAdi().trim().isEmpty()) {
+                try {
+                    deviceDAO.updateDeviceDescription(device.getId(), profil.getCihazAdi().trim());
+                    log.info("Updated device {} description to '{}'", device.getId(), profil.getCihazAdi().trim());
+                } catch (Exception descEx) {
+                    // Non-fatal: config was already created; just log and continue.
+                    log.warn("Could not update device description for device {}: {}", device.getId(), descEx.getMessage());
+                }
+            }
+
+            // ── 9. Mark proposal as APPLIED ───────────────────────────────────────────
             proposalDAO.markApplied(proposal.getId(), newConfig.getId());
 
-            // ── 9. Return result ──────────────────────────────────────────────────────
+            // ── 10. Return result ─────────────────────────────────────────────────────
             Map<String, Object> result = new LinkedHashMap<>();
             result.put("configurationId", newConfig.getId());
             result.put("configurationName", newConfig.getName());
@@ -205,7 +255,8 @@ public class AppProposalResource {
 
     @ApiOperation(
             value = "Get pending app-selection proposal for a device",
-            notes = "Returns the PENDING proposal for the given device, or null if none exists.",
+            notes = "Returns the PENDING proposal for the given device, or null if none exists. " +
+                    "Response includes profil block if present (new format) alongside the apps list.",
             response = Response.class
     )
     @GET
@@ -224,15 +275,13 @@ public class AppProposalResource {
                 return Response.OK(null);
             }
 
-            List<ProposalAppItem> apps = jsonMapper.readValue(
-                    proposal.getProposalJson(),
-                    new TypeReference<List<ProposalAppItem>>() {});
-
-            long allowedCount = apps.stream().filter(ProposalAppItem::isAllowed).count();
+            ParsedProposal parsed     = parseProposalJson(proposal.getProposalJson());
+            long allowedCount         = parsed.apps.stream().filter(ProposalAppItem::isAllowed).count();
 
             Map<String, Object> result = new LinkedHashMap<>();
             result.put("deviceId", deviceId);
-            result.put("apps", apps);
+            result.put("profil", parsed.profil);   // null for legacy proposals — panel hides block via ng-if
+            result.put("apps", parsed.apps);
             result.put("count", allowedCount);
             result.put("createdAt", proposal.getCreatedAt());
             return Response.OK(result);
@@ -296,10 +345,8 @@ public class AppProposalResource {
             for (DeviceAppProposal p : pending) {
                 if (p.getProposalJson() == null) continue;
                 try {
-                    List<ProposalAppItem> apps = jsonMapper.readValue(
-                            p.getProposalJson(),
-                            new TypeReference<List<ProposalAppItem>>() {});
-                    int count = (int) apps.stream().filter(ProposalAppItem::isAllowed).count();
+                    ParsedProposal parsed = parseProposalJson(p.getProposalJson());
+                    int count = (int) parsed.apps.stream().filter(ProposalAppItem::isAllowed).count();
                     result.put(p.getDeviceId(), count);
                 } catch (Exception parseEx) {
                     log.warn("Could not parse proposalJson for device {}, skipping badge",

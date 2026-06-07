@@ -1127,5 +1127,10 @@ document.localization ['en_US'] = {
     'proposal.modal.button.create': 'Create Configuration',
     'proposal.modal.button.dismiss': 'Dismiss',
     'proposal.modal.success': 'Configuration "${name}" created and assigned to device.',
-    'proposal.modal.autocreated': '${count} unknown package(s) were auto-registered in the catalog.'
+    'proposal.modal.autocreated': '${count} unknown package(s) were auto-registered in the catalog.',
+    'proposal.modal.profil.header': 'Personal Information',
+    'proposal.modal.profil.adSoyad': 'Full Name',
+    'proposal.modal.profil.yas': 'Age',
+    'proposal.modal.profil.meslek': 'Occupation',
+    'proposal.modal.profil.cihazAdi': 'Device Name'
 };

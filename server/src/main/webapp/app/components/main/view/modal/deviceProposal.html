@@ -13,6 +13,33 @@
             </div>
         </div>
 
+        <!-- Kişisel Bilgiler — sadece yeni format önerilerde görünür -->
+        <div class='form-group' ng-if='proposal.profil'>
+            <label class='col-sm-4 control-label' localized>proposal.modal.profil.header</label>
+            <div class='col-sm-8'>
+                <table class='table table-condensed' style='margin-bottom:0; border:1px solid #dce3ec; border-radius:4px;'>
+                    <tbody>
+                        <tr ng-if='proposal.profil.adSoyad'>
+                            <td class='text-muted' style='width:40%; padding:4px 10px;' localized>proposal.modal.profil.adSoyad</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.adSoyad}}</td>
+                        </tr>
+                        <tr ng-if='proposal.profil.yas'>
+                            <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.yas</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.yas}}</td>
+                        </tr>
+                        <tr ng-if='proposal.profil.meslek'>
+                            <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.meslek</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.meslek}}</td>
+                        </tr>
+                        <tr ng-if='proposal.profil.cihazAdi'>
+                            <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.cihazAdi</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.cihazAdi}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class='form-group'>
             <label class='col-sm-4 control-label' localized>proposal.modal.config.name</label>
             <div class='col-sm-8'>

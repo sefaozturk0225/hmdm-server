@@ -971,7 +971,16 @@ angular.module('headwind-kiosk')
                 size: 'lg',
                 resolve: {
                     device: function () { return device; },
-                    proposal: function () { return device.pendingProposal; }
+                    // Fetch full proposal (profil + apps) before opening the modal.
+                    // Falls back to badge data if the request fails.
+                    proposal: ['proposalService', function (proposalService) {
+                        return proposalService.getProposal({deviceId: device.id}).$promise.then(
+                            function (resp) {
+                                return (resp.status === 'OK' && resp.data) ? resp.data : (device.pendingProposal || {});
+                            },
+                            function () { return device.pendingProposal || {}; }
+                        );
+                    }]
                 }
             });
             modalInstance.result.then(function (result) {

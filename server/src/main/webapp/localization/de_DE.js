@@ -1128,5 +1128,10 @@ document.localization ['de_DE'] = {
     'proposal.modal.button.create': 'Konfiguration erstellen',
     'proposal.modal.button.dismiss': 'Ablehnen',
     'proposal.modal.success': 'Konfiguration "${name}" erstellt und dem Gerät zugewiesen.',
-    'proposal.modal.autocreated': '${count} unbekannte Paket(e) wurden automatisch im Katalog registriert.'
+    'proposal.modal.autocreated': '${count} unbekannte Paket(e) wurden automatisch im Katalog registriert.',
+    'proposal.modal.profil.header': 'Persönliche Informationen',
+    'proposal.modal.profil.adSoyad': 'Vollständiger Name',
+    'proposal.modal.profil.yas': 'Alter',
+    'proposal.modal.profil.meslek': 'Beruf',
+    'proposal.modal.profil.cihazAdi': 'Gerätename'
 };

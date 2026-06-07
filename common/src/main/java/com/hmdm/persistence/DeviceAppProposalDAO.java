@@ -30,7 +30,8 @@ public class DeviceAppProposalDAO {
      */
     public void upsertProposal(Integer deviceId, Integer customerId, AppProposalRequest request) {
         try {
-            String json = jsonMapper.writeValueAsString(request.getApps());
+            // Store full request {profil, apps} so the admin panel can show personal info.
+            String json = jsonMapper.writeValueAsString(request);
             DeviceAppProposal existing = mapper.findByDeviceId(deviceId);
             if (existing == null) {
                 DeviceAppProposal p = new DeviceAppProposal();

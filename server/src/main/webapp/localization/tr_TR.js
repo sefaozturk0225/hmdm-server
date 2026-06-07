@@ -1142,5 +1142,10 @@ document.localization ['tr_TR'] = {
     'proposal.modal.button.create': 'Yapılandırma Oluştur',
     'proposal.modal.button.dismiss': 'Reddet',
     'proposal.modal.success': '"${name}" yapılandırması oluşturuldu ve cihaza atandı.',
-    'proposal.modal.autocreated': '${count} bilinmeyen paket otomatik olarak kataloga eklendi.'
+    'proposal.modal.autocreated': '${count} bilinmeyen paket otomatik olarak kataloga eklendi.',
+    'proposal.modal.profil.header': 'Kişisel Bilgiler',
+    'proposal.modal.profil.adSoyad': 'Ad Soyad',
+    'proposal.modal.profil.yas': 'Yaş',
+    'proposal.modal.profil.meslek': 'Meslek',
+    'proposal.modal.profil.cihazAdi': 'Cihaz Adı'
 };
