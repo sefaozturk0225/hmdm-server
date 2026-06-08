@@ -4,6 +4,7 @@ import com.hmdm.persistence.DeviceAppProposalDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Device;
 import com.hmdm.rest.json.AppProposalRequest;
+import com.hmdm.rest.json.ProfilInfo;
 import com.hmdm.rest.json.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,6 +65,19 @@ public class AppSelectionPublicResource {
 
             if (request == null || request.getApps() == null) {
                 return Response.ERROR("apps field must not be null");
+            }
+
+            // Profili cihaz kaydına yaz (PENDING'ken de panelde görünsün).
+            ProfilInfo profil = request.getProfil();
+            if (profil != null) {
+                device.setCustom1(profil.getAdSoyad() != null ? profil.getAdSoyad().trim() : null);
+                device.setCustom2(profil.getYas()     != null ? String.valueOf(profil.getYas()) : null);
+                device.setCustom3(profil.getMeslek()  != null ? profil.getMeslek().trim()  : null);
+                unsecureDAO.updateDeviceCustomProperties(device.getId(), device);
+
+                if (profil.getCihazAdi() != null && !profil.getCihazAdi().trim().isEmpty()) {
+                    unsecureDAO.updateDeviceDescription(device.getId(), profil.getCihazAdi().trim());
+                }
             }
 
             proposalDAO.upsertProposal(device.getId(), device.getCustomerId(), request);

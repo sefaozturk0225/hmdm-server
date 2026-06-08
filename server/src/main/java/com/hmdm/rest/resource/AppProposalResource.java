@@ -141,7 +141,6 @@ public class AppProposalResource {
 
             ParsedProposal parsed      = parseProposalJson(proposal.getProposalJson());
             List<ProposalAppItem> proposedApps = parsed.apps;
-            ProfilInfo            profil        = parsed.profil;
 
             // ── 4. Resolve allowed packages — auto-create URL-less stubs for unknowns ─
             List<String> autoCreated = new ArrayList<>();
@@ -226,16 +225,7 @@ public class AppProposalResource {
             // ── 7. Assign device to new configuration ─────────────────────────────────
             deviceDAO.updateDeviceConfiguration(device.getId(), newConfig.getId());
 
-            // ── 8. Update device description from profil.cihazAdi if provided ─────────
-            if (profil != null && profil.getCihazAdi() != null && !profil.getCihazAdi().trim().isEmpty()) {
-                try {
-                    deviceDAO.updateDeviceDescription(device.getId(), profil.getCihazAdi().trim());
-                    log.info("Updated device {} description to '{}'", device.getId(), profil.getCihazAdi().trim());
-                } catch (Exception descEx) {
-                    // Non-fatal: config was already created; just log and continue.
-                    log.warn("Could not update device description for device {}: {}", device.getId(), descEx.getMessage());
-                }
-            }
+            // ── 8. (skipped) profil yazımı submit anında gerçekleşti; burada tekrar yazmaya gerek yok ──
 
             // ── 9. Mark proposal as APPLIED ───────────────────────────────────────────
             proposalDAO.markApplied(proposal.getId(), newConfig.getId());
