@@ -2698,4 +2698,22 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="26.06.08-10:00" author="bzkyapi" context="common">
+        <comment>Fix: device_app_proposal.deviceId FK — add ON DELETE CASCADE so deleting a device also removes its proposal</comment>
+        <sql>
+            ALTER TABLE device_app_proposal
+                DROP CONSTRAINT IF EXISTS device_app_proposal_deviceid_fkey;
+            ALTER TABLE device_app_proposal
+                ADD CONSTRAINT device_app_proposal_deviceid_fkey
+                FOREIGN KEY (deviceId) REFERENCES devices(id) ON DELETE CASCADE;
+        </sql>
+        <rollback>
+            ALTER TABLE device_app_proposal
+                DROP CONSTRAINT IF EXISTS device_app_proposal_deviceid_fkey;
+            ALTER TABLE device_app_proposal
+                ADD CONSTRAINT device_app_proposal_deviceid_fkey
+                FOREIGN KEY (deviceId) REFERENCES devices(id);
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>
