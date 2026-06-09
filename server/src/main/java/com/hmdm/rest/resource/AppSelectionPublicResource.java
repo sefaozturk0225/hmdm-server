@@ -3,7 +3,6 @@ package com.hmdm.rest.resource;
 import com.hmdm.persistence.DeviceAppProposalDAO;
 import com.hmdm.persistence.UnsecureDAO;
 import com.hmdm.persistence.domain.Device;
-import com.hmdm.persistence.domain.Settings;
 import com.hmdm.rest.json.AppProposalRequest;
 import com.hmdm.rest.json.ProfilInfo;
 import com.hmdm.rest.json.Response;
@@ -63,19 +62,20 @@ public class AppSelectionPublicResource {
                 // Cihaz henüz yok — form gönderimi sırasında oluştur.
                 // sync()'in isSingleCustomer/createNewDevices koşullarına bağlı kalmıyoruz.
                 try {
-                    Settings settings = unsecureDAO.getSingleCustomerSettings();
-                    if (settings == null) {
-                        log.error("getSingleCustomerSettings() null, cannot auto-create device {}", deviceNumber);
-                        return Response.DEVICE_NOT_FOUND_ERROR();
+                    final int customerId = 1; // tek müşteri (DEFAULT_CUSTOMER_ID)
+                    Integer configId = unsecureDAO.getDefaultConfigurationIdForCustomer(customerId);
+                    if (configId == null) {
+                        log.error("No configuration found for customer {}, cannot auto-create device {}", customerId, deviceNumber);
+                        return Response.ERROR("Server configuration error: no configuration found");
                     }
                     Device newDevice = new Device();
                     newDevice.setNumber(deviceNumber);
-                    newDevice.setCustomerId(settings.getCustomerId());
-                    newDevice.setConfigurationId(settings.getNewDeviceConfigurationId());
+                    newDevice.setCustomerId(customerId);
+                    newDevice.setConfigurationId(configId);
                     newDevice.setLastUpdate(0L);
                     unsecureDAO.insertDevice(newDevice);
                     device = unsecureDAO.getDeviceByNumber(deviceNumber);
-                    log.info("Device {} auto-created on submit", deviceNumber);
+                    log.info("Device {} auto-created on submit (configId={})", deviceNumber, configId);
                 } catch (Exception createEx) {
                     log.error("Failed to auto-create device {} on submit", deviceNumber, createEx);
                 }

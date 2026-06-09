@@ -189,6 +189,18 @@ public class UnsecureDAO {
         this.deviceMapper.updateDeviceDescription(deviceId, description);
     }
 
+    /**
+     * Returns the ID of the default configuration for the given customer.
+     * Prefers the configuration named "Common - Minimal"; falls back to the lowest-ID config.
+     * Returns null if no configuration exists for that customer.
+     */
+    public Integer getDefaultConfigurationIdForCustomer(int customerId) {
+        Configuration named = configurationMapper.getConfigurationByName(customerId, "Common - Minimal");
+        if (named != null) return named.getId();
+        Configuration first = configurationMapper.getFirstConfigurationForCustomer(customerId);
+        return first != null ? first.getId() : null;
+    }
+
     public void completeDeviceMigration(Integer id) {
         this.deviceMapper.clearOldNumber(id);
     }

@@ -153,6 +153,9 @@ public interface ConfigurationMapper {
             "AND name=#{name} LIMIT 1"})
     Configuration getConfigurationByName(@Param("customerId") int customerId, @Param("name") String name);
 
+    @Select("SELECT * FROM configurations WHERE customerId=#{customerId} ORDER BY id ASC LIMIT 1")
+    Configuration getFirstConfigurationForCustomer(@Param("customerId") int customerId);
+
     void insertConfigurationApplications(@Param("id") Integer id, @Param("apps") List<Application> applications);
 
     void insertConfigurationApplicationSettings(@Param("id") Integer id,
