@@ -206,10 +206,30 @@ public class AppProposalResource {
                 }
                 newConfig.setApplications(merged);
             } else {
-                newConfig = new Configuration();
-                newConfig.setDisableLocation(false);
+                // Şablon seçilmedi — varsayılan config'i baz al; böylece pushOptions
+                // dahil tüm NOT NULL alanlar ve sistem uygulamaları (MDM agent + launcher)
+                // otomatik dolar. Önce "Common - Minimal", yoksa ilk mevcut config.
+                Configuration base = configurationDAO.getConfigurationByName("Common - Minimal");
+                if (base == null) {
+                    List<Configuration> all = configurationDAO.getAllConfigurations();
+                    if (!all.isEmpty()) base = configurationDAO.getConfigurationById(all.get(0).getId());
+                }
+                if (base == null) return Response.ERROR("No base configuration found; create at least one configuration first");
+
+                List<Application> baseApps = configurationDAO.getPlainConfigurationApplications(base.getId());
+                newConfig = base.newCopy();
                 newConfig.setDescription("Created from device proposal");
-                newConfig.setApplications(catalogApps);
+
+                Set<String> existingPkgs = baseApps.stream()
+                        .map(Application::getPkg)
+                        .filter(Objects::nonNull)
+                        .collect(Collectors.toSet());
+
+                List<Application> merged = new ArrayList<>(baseApps);
+                for (Application a : catalogApps) {
+                    if (!existingPkgs.contains(a.getPkg())) merged.add(a);
+                }
+                newConfig.setApplications(merged);
             }
 
             newConfig.setName(request.getConfigName().trim());
