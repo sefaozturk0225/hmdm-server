@@ -12,6 +12,8 @@ public class ProfilInfo implements Serializable {
     private Integer yas;
     private String  meslek;
     private String  cihazAdi;
+    private String  telefon;
+    private String  sinavPaketi;
 
     public String getAdSoyad() { return adSoyad; }
     public void setAdSoyad(String adSoyad) { this.adSoyad = adSoyad; }
@@ -24,4 +26,10 @@ public class ProfilInfo implements Serializable {
 
     public String getCihazAdi() { return cihazAdi; }
     public void setCihazAdi(String cihazAdi) { this.cihazAdi = cihazAdi; }
+
+    public String getTelefon() { return telefon; }
+    public void setTelefon(String telefon) { this.telefon = telefon; }
+
+    public String getSinavPaketi() { return sinavPaketi; }
+    public void setSinavPaketi(String sinavPaketi) { this.sinavPaketi = sinavPaketi; }
 }

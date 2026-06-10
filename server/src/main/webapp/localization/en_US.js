@@ -1132,5 +1132,7 @@ document.localization ['en_US'] = {
     'proposal.modal.profil.adSoyad': 'Full Name',
     'proposal.modal.profil.yas': 'Age',
     'proposal.modal.profil.meslek': 'Occupation',
-    'proposal.modal.profil.cihazAdi': 'Device Name'
+    'proposal.modal.profil.cihazAdi': 'Device Name',
+    'proposal.modal.profil.telefon': 'Phone',
+    'proposal.modal.profil.sinavPaketi': 'Exam Package'
 };

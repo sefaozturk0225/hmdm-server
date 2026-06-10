@@ -1147,5 +1147,7 @@ document.localization ['tr_TR'] = {
     'proposal.modal.profil.adSoyad': 'Ad Soyad',
     'proposal.modal.profil.yas': 'Yaş',
     'proposal.modal.profil.meslek': 'Meslek',
-    'proposal.modal.profil.cihazAdi': 'Cihaz Adı'
+    'proposal.modal.profil.cihazAdi': 'Cihaz Adı',
+    'proposal.modal.profil.telefon': 'Telefon',
+    'proposal.modal.profil.sinavPaketi': 'Sınav Paketi'
 };

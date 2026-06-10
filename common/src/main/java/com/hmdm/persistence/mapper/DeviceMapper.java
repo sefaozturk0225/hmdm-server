@@ -124,6 +124,10 @@ public interface DeviceMapper {
                                       @Param("custom2") String custom2,
                                       @Param("custom3") String custom3);
 
+    @Update({"UPDATE devices SET phone = #{phone} WHERE id = #{deviceId}"})
+    void updateDevicePhone(@Param("deviceId") Integer deviceId,
+                           @Param("phone") String phone);
+
     @Update({"UPDATE devices SET oldNumber = null " +
             "WHERE id = #{deviceId}"})
     void clearOldNumber(@Param("deviceId") Integer deviceId);

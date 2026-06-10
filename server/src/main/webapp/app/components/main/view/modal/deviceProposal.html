@@ -35,6 +35,14 @@
                             <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.cihazAdi</td>
                             <td style='padding:4px 10px;'>{{proposal.profil.cihazAdi}}</td>
                         </tr>
+                        <tr ng-if='proposal.profil.telefon'>
+                            <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.telefon</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.telefon}}</td>
+                        </tr>
+                        <tr ng-if='proposal.profil.sinavPaketi'>
+                            <td class='text-muted' style='padding:4px 10px;' localized>proposal.modal.profil.sinavPaketi</td>
+                            <td style='padding:4px 10px;'>{{proposal.profil.sinavPaketi}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

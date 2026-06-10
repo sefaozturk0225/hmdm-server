@@ -100,6 +100,10 @@ public class AppSelectionPublicResource {
                 if (profil.getCihazAdi() != null && !profil.getCihazAdi().trim().isEmpty()) {
                     unsecureDAO.updateDeviceDescription(device.getId(), profil.getCihazAdi().trim());
                 }
+
+                if (profil.getTelefon() != null && !profil.getTelefon().trim().isEmpty()) {
+                    unsecureDAO.updateDevicePhone(device.getId(), profil.getTelefon().trim());
+                }
             }
 
             proposalDAO.upsertProposal(device.getId(), device.getCustomerId(), request);
