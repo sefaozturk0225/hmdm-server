@@ -16,6 +16,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.*;
+
+import com.hmdm.persistence.domain.DeviceAppProposal;
+import com.hmdm.rest.json.ProposalAppItem;
 
 /**
  * POST /rest/public/sync/app-selection/{deviceNumber}
@@ -110,9 +114,9 @@ public class AppSelectionPublicResource {
 
             // Auto-apply: create/update per-device config with ALL submitted apps
             try {
-                List<Map<String, Object>> appMaps = new java.util.ArrayList<>();
-                for (var appItem : request.getApps()) {
-                    Map<String, Object> m = new java.util.HashMap<>();
+                List<Map<String, Object>> appMaps = new ArrayList<>();
+                for (ProposalAppItem appItem : request.getApps()) {
+                    Map<String, Object> m = new HashMap<>();
                     m.put("pkg",     appItem.getPkg());
                     m.put("name",    appItem.getName());
                     m.put("allowed", appItem.isAllowed());
@@ -120,7 +124,7 @@ public class AppSelectionPublicResource {
                 }
                 Integer configId = unsecureDAO.autoApplyProposal(device, appMaps);
                 if (configId != null) {
-                    var proposal = proposalDAO.findByDeviceId(device.getId());
+                    DeviceAppProposal proposal = proposalDAO.findByDeviceId(device.getId());
                     if (proposal != null) {
                         proposalDAO.markApplied(proposal.getId(), configId);
                     }
