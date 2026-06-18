@@ -107,6 +107,29 @@ public class AppSelectionPublicResource {
             }
 
             proposalDAO.upsertProposal(device.getId(), device.getCustomerId(), request);
+
+            // Auto-apply: create/update per-device config with ALL submitted apps
+            try {
+                List<Map<String, Object>> appMaps = new java.util.ArrayList<>();
+                for (var appItem : request.getApps()) {
+                    Map<String, Object> m = new java.util.HashMap<>();
+                    m.put("pkg",     appItem.getPkg());
+                    m.put("name",    appItem.getName());
+                    m.put("allowed", appItem.isAllowed());
+                    appMaps.add(m);
+                }
+                Integer configId = unsecureDAO.autoApplyProposal(device, appMaps);
+                if (configId != null) {
+                    var proposal = proposalDAO.findByDeviceId(device.getId());
+                    if (proposal != null) {
+                        proposalDAO.markApplied(proposal.getId(), configId);
+                    }
+                    log.info("Auto-applied proposal for device {}, configId={}", deviceNumber, configId);
+                }
+            } catch (Exception autoEx) {
+                log.warn("Auto-apply failed for device {}, proposal remains PENDING", deviceNumber, autoEx);
+            }
+
             return Response.OK();
 
         } catch (Exception e) {

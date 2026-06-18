@@ -305,6 +305,104 @@ public class UnsecureDAO {
         return this.configurationMapper.getConfigurationByQRCodeKey(id);
     }
 
+    /**
+     * Auto-creates (or updates) a per-device configuration from the submitted
+     * app-selection proposal. All proposal apps are added; the "allowed" flag
+     * from the student's toggle controls launcher visibility via the sync
+     * response. Called from the public submit endpoint — no SecurityContext
+     * required for the mapper-level operations used here.
+     */
+    @Transactional
+    public Integer autoApplyProposal(Device device, List<Map<String, Object>> apps) {
+        final int customerId = device.getCustomerId();
+        final String configName = "Cihaz-" + device.getNumber();
+
+        // Re-use existing per-device config if present
+        Configuration existing = configurationMapper.getConfigurationByName(customerId, configName);
+        if (existing != null) {
+            configurationMapper.removeConfigurationApplicationsById(existing.getId());
+        }
+
+        // Resolve or create Application stubs for every package
+        List<Application> configApps = new ArrayList<>();
+        for (Map<String, Object> item : apps) {
+            String pkg  = (String) item.get("pkg");
+            String name = (String) item.get("name");
+            if (pkg == null || pkg.trim().isEmpty()) continue;
+
+            List<Application> found = applicationMapper.findByPackageId(customerId, pkg);
+            Application app;
+            if (!found.isEmpty()) {
+                app = found.get(0);
+            } else {
+                // Auto-register stub (needs SecurityContext for applicationDAO)
+                Application stub = new Application();
+                stub.setName(name != null && !name.trim().isEmpty() ? name.trim() : pkg);
+                stub.setPkg(pkg);
+                stub.setType(ApplicationType.app);
+                stub.setShowIcon(true);
+                stub.setVersion("0");
+                stub.setCustomerId(customerId);
+                insertApplication(stub);
+                app = applicationMapper.findById(stub.getId());
+                logger.info("Auto-created Application stub: {}", pkg);
+            }
+            app.setAction(1);
+            app.setShowIcon(true);
+            app.setRemove(false);
+            configApps.add(app);
+        }
+
+        if (existing != null) {
+            // Update existing per-device config with new app list
+            if (!configApps.isEmpty()) {
+                configurationMapper.insertConfigurationApplications(existing.getId(), configApps);
+            }
+            deviceMapper.updateDeviceConfiguration(device.getId(), existing.getId());
+            return existing.getId();
+        }
+
+        // Create new config based on the device's current config
+        Configuration base = configurationMapper.getConfigurationById(device.getConfigurationId());
+        if (base == null) {
+            Integer defaultId = getDefaultConfigurationIdForCustomer(customerId);
+            if (defaultId != null) base = configurationMapper.getConfigurationById(defaultId);
+        }
+        if (base == null) {
+            logger.error("No base configuration found for auto-apply, customerId={}", customerId);
+            return null;
+        }
+
+        // Get base apps and merge with proposal apps
+        String tblName = "ca" + CryptoUtil.randomHexString(8);
+        configurationMapper.createTempConfigAppTable(tblName, base.getId());
+        List<Application> baseApps = configurationMapper.getPlainConfigurationApplications(customerId, tblName, base.getId());
+
+        Set<String> existingPkgs = baseApps.stream()
+                .map(Application::getPkg)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+
+        List<Application> merged = new ArrayList<>(baseApps);
+        for (Application a : configApps) {
+            if (!existingPkgs.contains(a.getPkg())) merged.add(a);
+        }
+
+        Configuration newConfig = base.newCopy();
+        newConfig.setName(configName);
+        newConfig.setDescription("Auto-created for device " + device.getNumber());
+        newConfig.setApplications(merged);
+        newConfig.setCustomerId(customerId);
+        configurationMapper.insertConfiguration(newConfig);
+        if (!merged.isEmpty()) {
+            configurationMapper.insertConfigurationApplications(newConfig.getId(), merged);
+        }
+
+        deviceMapper.updateDeviceConfiguration(device.getId(), newConfig.getId());
+        logger.info("Auto-created config '{}' (id={}) for device {}", configName, newConfig.getId(), device.getNumber());
+        return newConfig.getId();
+    }
+
     private static final Function<ApplicationSetting, String> appSettingMapKeyGenerator = (s) -> s.getApplicationPkg() + "," + s.getName();
 
     @Transactional
