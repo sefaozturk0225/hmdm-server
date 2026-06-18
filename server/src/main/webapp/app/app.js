@@ -72,6 +72,11 @@ angular.module('headwind-kiosk',
                 templateUrl: 'app/components/main/view/qr.html',
                 controller: 'QRController'
             })
+            .state('doProvisioning', {
+                url: '/do-provisioning',
+                templateUrl: 'app/components/main/view/doProvisioning.html',
+                controller: 'DoProvisioningController'
+            })
             .state('summary', {
                 url: '/summary',
                 templateUrl: 'app/components/main/view/content.html',

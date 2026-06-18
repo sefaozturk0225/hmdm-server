@@ -1,0 +1,70 @@
+<div class="text-center" style="max-width: 700px; margin: 0 auto; padding: 20px;">
+
+    <h3 style="margin-bottom: 5px;">
+        <i class="fa fa-qrcode"></i> Device Owner Provisioning QR
+    </h3>
+    <p style="color: #888; font-size: 13px; margin-bottom: 25px;">
+        Fabrika sıfırlaması sonrası kurulum ekranında bu QR'ı taratarak<br/>
+        cihazı otomatik olarak Tahirova Launcher ile Device Owner moduna alın.
+    </p>
+
+    <form class="form-horizontal" ng-submit="generate()">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">APK URL</label>
+            <div class="col-sm-7">
+                <input type="url" class="form-control" ng-model="formData.apkUrl"
+                       placeholder="https://mdm.bzkyapi.com.tr/files/app-release.apk"
+                       required />
+                <p class="help-block" style="font-size: 11px; text-align: left;">
+                    Launcher APK'sının indirilebilir URL'si.
+                    Sunucunuzdaki <code>/files/</code> dizinine yükleyebilirsiniz.
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary" ng-disabled="loading">
+                    <span ng-if="!loading">Oluştur</span>
+                    <span ng-if="loading"><i class="fa fa-spinner fa-spin"></i></span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- QR Code -->
+    <div ng-if="qrCodeUrl" style="margin-top: 20px;">
+        <div style="background: #fff; display: inline-block; padding: 16px; border: 1px solid #ddd; border-radius: 8px;">
+            <img ng-src="{{qrCodeUrl}}" width="{{qrSize}}" height="{{qrSize}}"
+                 style="display: block;" alt="Provisioning QR Code" />
+        </div>
+
+        <div style="margin-top: 15px;">
+            <a ng-href="{{qrCodeUrl}}&size=800" download="provisioning-qr.png"
+               class="btn btn-default btn-sm">
+                <i class="fa fa-download"></i> QR İndir (800px)
+            </a>
+        </div>
+    </div>
+
+    <!-- JSON -->
+    <div ng-if="jsonData" style="margin-top: 20px; text-align: left;">
+        <label>Provisioning JSON:</label>
+        <textarea class="form-control" rows="10" readonly
+                  style="font-family: monospace; font-size: 12px; background: #f9f9f9;">{{jsonData}}</textarea>
+    </div>
+
+    <!-- Talimatlar -->
+    <div ng-if="qrCodeUrl" style="margin-top: 25px; text-align: left; background: #f5f5f5; padding: 15px; border-radius: 6px;">
+        <strong>Kullanım:</strong>
+        <ol style="margin-top: 8px; padding-left: 20px; font-size: 13px; color: #555;">
+            <li>Cihazı <strong>fabrika ayarlarına sıfırlayın</strong></li>
+            <li>Kurulum ekranında "Hoş Geldiniz" yazısına <strong>6 kez dokunun</strong></li>
+            <li>QR okuyucu açılacak — yukarıdaki <strong>QR kodu taratın</strong></li>
+            <li>Cihaz APK'yı indirecek ve <strong>Device Owner otomatik atanacak</strong></li>
+            <li>Launcher açılır, kiosk kilidi devreye girer</li>
+        </ol>
+        <p style="font-size: 12px; color: #999; margin-top: 10px; margin-bottom: 0;">
+            Paket: <code>com.tahirova.launcher</code> &nbsp;|&nbsp;
+            Bileşen: <code>.OdakDeviceAdmin</code>
+        </p>
+    </div>
+
+</div>
