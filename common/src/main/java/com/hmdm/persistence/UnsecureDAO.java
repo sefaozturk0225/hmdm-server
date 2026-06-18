@@ -323,11 +323,13 @@ public class UnsecureDAO {
             configurationMapper.removeConfigurationApplicationsById(existing.getId());
         }
 
-        // Resolve or create Application stubs for every package
+        // Resolve or create Application stubs for ALL packages (catalog accumulation)
         List<Application> configApps = new ArrayList<>();
         for (Map<String, Object> item : apps) {
             String pkg  = (String) item.get("pkg");
             String name = (String) item.get("name");
+            Object allowedObj = item.get("allowed");
+            boolean allowed = allowedObj instanceof Boolean && (Boolean) allowedObj;
             if (pkg == null || pkg.trim().isEmpty()) continue;
 
             List<Application> found = applicationMapper.findByPackageId(customerId, pkg);
@@ -335,20 +337,20 @@ public class UnsecureDAO {
             if (!found.isEmpty()) {
                 app = found.get(0);
             } else {
-                // Auto-register stub (needs SecurityContext for applicationDAO)
                 Application stub = new Application();
                 stub.setName(name != null && !name.trim().isEmpty() ? name.trim() : pkg);
                 stub.setPkg(pkg);
                 stub.setType(ApplicationType.app);
-                stub.setShowIcon(true);
+                stub.setShowIcon(allowed);
                 stub.setVersion("0");
                 stub.setCustomerId(customerId);
                 insertApplication(stub);
                 app = applicationMapper.findById(stub.getId());
-                logger.info("Auto-created Application stub: {}", pkg);
+                logger.info("Auto-created Application: {} ({})", name, pkg);
             }
-            app.setAction(1);
-            app.setShowIcon(true);
+            // allowed → install + show; not allowed → listed but hidden
+            app.setAction(allowed ? 1 : 0);
+            app.setShowIcon(allowed);
             app.setRemove(false);
             configApps.add(app);
         }
