@@ -1,0 +1,36 @@
+{
+  "id": "green-dark",
+  "name": "Yeşil Karanlık",
+  "version": 1,
+  "colors": {
+    "primary": "#4CAF50",
+    "primary_variant": "#388E3C",
+    "accent": "#81C784",
+    "background": "#0D1210",
+    "surface": "#161D16",
+    "surface_variant": "#1E2B1E",
+    "card": "#192519",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A0A0A0",
+    "text_on_primary": "#FFFFFF",
+    "border": "#2A3D2A",
+    "timer_ring": "#4CAF50",
+    "timer_ring_inactive": "#2A3D2A",
+    "button_start": "#4CAF50",
+    "button_start_text": "#FFFFFF",
+    "chip_background": "#1E2B1E",
+    "chip_text": "#4CAF50",
+    "tab_active": "#4CAF50",
+    "tab_inactive": "#606060"
+  },
+  "assets": {
+    "background_image_url": null,
+    "logo_url": null
+  },
+  "typography": {
+    "font_family": "default",
+    "timer_font_size_sp": 56,
+    "heading_font_size_sp": 20,
+    "body_font_size_sp": 14
+  }
+}

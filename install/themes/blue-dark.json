@@ -1,0 +1,36 @@
+{
+  "id": "blue-dark",
+  "name": "Mavi Karanlık",
+  "version": 1,
+  "colors": {
+    "primary": "#2196F3",
+    "primary_variant": "#1565C0",
+    "accent": "#64B5F6",
+    "background": "#0D1117",
+    "surface": "#161B22",
+    "surface_variant": "#1C2635",
+    "card": "#1A2333",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#8B949E",
+    "text_on_primary": "#FFFFFF",
+    "border": "#21323F",
+    "timer_ring": "#2196F3",
+    "timer_ring_inactive": "#21323F",
+    "button_start": "#2196F3",
+    "button_start_text": "#FFFFFF",
+    "chip_background": "#1C2635",
+    "chip_text": "#2196F3",
+    "tab_active": "#2196F3",
+    "tab_inactive": "#606060"
+  },
+  "assets": {
+    "background_image_url": null,
+    "logo_url": null
+  },
+  "typography": {
+    "font_family": "default",
+    "timer_font_size_sp": 56,
+    "heading_font_size_sp": 20,
+    "body_font_size_sp": 14
+  }
+}

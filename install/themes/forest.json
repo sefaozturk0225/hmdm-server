@@ -1,0 +1,36 @@
+{
+  "id": "forest",
+  "name": "Orman Odak",
+  "version": 2,
+  "colors": {
+    "primary":             "#9BCB6F",
+    "primary_variant":     "#6FA84F",
+    "accent":              "#B6E28A",
+    "background":          "#07110D",
+    "surface":             "#111A16",
+    "surface_variant":     "#18231D",
+    "card":                "#121D18",
+    "text_primary":        "#F2F5F0",
+    "text_secondary":      "#AAB3AA",
+    "text_on_primary":     "#FFFFFF",
+    "border":              "#2B3A31",
+    "timer_ring":          "#9BCB6F",
+    "timer_ring_inactive": "#1D2A24",
+    "button_start":        "#86B957",
+    "button_start_text":   "#FFFFFF",
+    "chip_background":     "#17221C",
+    "chip_text":           "#B6E28A",
+    "tab_active":          "#9BCB6F",
+    "tab_inactive":        "#AAB3AA"
+  },
+  "assets": {
+    "background_image_url": "asset:assets/images/forest_background.png",
+    "logo_url": "asset:assets/icons/ic_forest_leaf.svg"
+  },
+  "typography": {
+    "font_family": "default",
+    "timer_font_size_sp": 56,
+    "heading_font_size_sp": 20,
+    "body_font_size_sp": 14
+  }
+}

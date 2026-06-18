@@ -1,0 +1,23 @@
+[
+  {
+    "id": "green-dark",
+    "name": "Yeşil Karanlık",
+    "preview_url": "{base_url}/rest/public/files/download/themes/green-dark-preview.jpg",
+    "version": 1,
+    "is_default": false
+  },
+  {
+    "id": "forest",
+    "name": "Orman Odak",
+    "preview_url": "{base_url}/rest/public/files/download/themes/forest-preview.png",
+    "version": 2,
+    "is_default": true
+  },
+  {
+    "id": "blue-dark",
+    "name": "Mavi Karanlık",
+    "preview_url": "{base_url}/rest/public/files/download/themes/blue-dark-preview.jpg",
+    "version": 1,
+    "is_default": false
+  }
+]

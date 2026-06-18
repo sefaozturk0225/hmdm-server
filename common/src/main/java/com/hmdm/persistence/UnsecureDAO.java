@@ -364,7 +364,7 @@ public class UnsecureDAO {
             return existing.getId();
         }
 
-        // Create new config based on the device's current config
+        // Create new config based on the device's current config (settings only, NOT apps)
         Configuration base = configurationMapper.getConfigurationById(device.getConfigurationId());
         if (base == null) {
             Integer defaultId = getDefaultConfigurationIdForCustomer(customerId);
@@ -375,29 +375,15 @@ public class UnsecureDAO {
             return null;
         }
 
-        // Get base apps and merge with proposal apps
-        String tblName = "ca" + CryptoUtil.randomHexString(8);
-        configurationMapper.createTempConfigAppTable(tblName, base.getId());
-        List<Application> baseApps = configurationMapper.getPlainConfigurationApplications(customerId, tblName, base.getId());
-
-        Set<String> existingPkgs = baseApps.stream()
-                .map(Application::getPkg)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toSet());
-
-        List<Application> merged = new ArrayList<>(baseApps);
-        for (Application a : configApps) {
-            if (!existingPkgs.contains(a.getPkg())) merged.add(a);
-        }
-
+        // Use ONLY the phone's apps — no merge with base config apps
         Configuration newConfig = base.newCopy();
         newConfig.setName(configName);
         newConfig.setDescription("Auto-created for device " + device.getNumber());
-        newConfig.setApplications(merged);
+        newConfig.setApplications(configApps);
         newConfig.setCustomerId(customerId);
         configurationMapper.insertConfiguration(newConfig);
-        if (!merged.isEmpty()) {
-            configurationMapper.insertConfigurationApplications(newConfig.getId(), merged);
+        if (!configApps.isEmpty()) {
+            configurationMapper.insertConfigurationApplications(newConfig.getId(), configApps);
         }
 
         deviceMapper.updateDeviceConfiguration(device.getId(), newConfig.getId());
